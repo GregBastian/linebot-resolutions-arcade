@@ -19,7 +19,7 @@ def create_app(line_bot_api, handler):
 
     @app.route("/home")
     def homepage_test():
-        return "<h1> Line Bot is Working On! </h1>"
+        return "<h1>Line Bot is Working On!</h1>"
 
     @app.route("/webhook", methods=['POST'])
     def callback():
