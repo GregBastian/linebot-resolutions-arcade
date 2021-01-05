@@ -25,7 +25,7 @@ class GameNames(ExtendedEnum):
 
 class GeneralImages(ExtendedEnum):
     WELCOME_ARCADE = "https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress&cs=tinysrgb&h" \
-                     "=350 "
+                     "=350"
 
 
 class GameImages(ExtendedEnum):
