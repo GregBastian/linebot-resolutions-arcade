@@ -18,7 +18,8 @@ class FlexResponses:
         profile = line_bot_api.get_profile(idUser)
         line_bot_api.reply_message(
             event.reply_token,
-            FlexSendMessage(alt_text=f"Welcome, {profileName}", contents=get_follow_event_flex_message(profile.display_name))
+            FlexSendMessage(alt_text=f"Welcome, {profile.display_name}",
+                            contents=get_follow_event_flex_message(profile.display_name))
         )
 
 flex_responses_obj = FlexResponses()
