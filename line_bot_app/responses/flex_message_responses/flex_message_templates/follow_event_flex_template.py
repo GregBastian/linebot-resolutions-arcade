@@ -23,7 +23,8 @@ def get_follow_event_flex_message(profileName="user"):
         },
         "hero": {
             "type": "image",
-            "url": "https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=350",
+            "url": "https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress\u0026cs=tinysrgb"
+                   "\u0026h=350",
             "size": "full",
             "aspectMode": "cover",
             "action": {
@@ -75,7 +76,8 @@ def get_follow_event_flex_message(profileName="user"):
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Mainkan semua permainan yang kamu mau. Semoga kamu menikmati waktumu disini.",
+                                    "text": "Mainkan semua permainan yang kamu mau. Semoga kamu menikmati waktumu "
+                                            "disini.",
                                     "wrap": True,
                                     "color": "#fb9eae",
                                     "size": "lg",

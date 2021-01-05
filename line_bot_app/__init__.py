@@ -11,6 +11,8 @@ import logging
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
 
+from line_bot_app.handlers.follow_event_handler import user_follow_event_handlers_obj
+
 
 def create_app(line_bot_api, handler):
     app = Flask(__name__)
@@ -41,8 +43,8 @@ def create_app(line_bot_api, handler):
     @handler.add(FollowEvent)
     def user_follow_event(event):
         idUser = event.source.user_id
-        profile = line_bot_api.get_profile(idUser)
         app.logger.info(f"Received Follow event from {idUser}")
+        user_follow_event_handlers_obj.user_follow_event_handler_function(event, line_bot_api)
 
 
 
