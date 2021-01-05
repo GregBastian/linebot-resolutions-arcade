@@ -23,8 +23,8 @@ def get_follow_event_flex_message(profileName="user"):
         },
         "hero": {
             "type": "image",
-            "url": "https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress\u0026cs=tinysrgb"
-                   "\u0026h=350",
+            "url": r"https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress\u0026cs=tinysrgb"
+                   r"\u0026h=350",
             "size": "full",
             "aspectMode": "cover",
             "action": {
