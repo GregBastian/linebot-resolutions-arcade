@@ -23,8 +23,7 @@ def get_follow_event_flex_message(profileName="user"):
         },
         "hero": {
             "type": "image",
-            "url": r"https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress\u0026cs=tinysrgb"
-                   r"\u0026h=350",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "20:13"
@@ -71,8 +70,7 @@ def get_follow_event_flex_message(profileName="user"):
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Mainkan semua permainan yang kamu mau. Semoga kamu menikmati waktumu "
-                                            "disini.",
+                                    "text": "Mainkan semua permainan yang kamu mau. Semoga kamu menikmati waktumu disini.",
                                     "wrap": True,
                                     "color": "#fb9eae",
                                     "size": "lg",
