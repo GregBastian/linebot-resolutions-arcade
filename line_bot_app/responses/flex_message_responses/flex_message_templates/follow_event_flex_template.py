@@ -11,7 +11,7 @@ def get_follow_event_flex_message(profileName="user"):
             "contents": [
                 {
                     "type": "text",
-                    "text": "--Resolutions Arcade--",
+                    "text": "--Resolution Arcade--",
                     "weight": "bold",
                     "size": "xxl",
                     "color": "#e3e4e6",
@@ -58,7 +58,7 @@ def get_follow_event_flex_message(profileName="user"):
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Selamat datang ke Resolutions Arcade.",
+                                    "text": "Selamat datang ke Resolution Arcade.",
                                     "wrap": True,
                                     "color": "#fb9eae",
                                     "size": "lg",
@@ -106,8 +106,8 @@ def get_follow_event_flex_message(profileName="user"):
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Sincerely, Manager Resolutions Arcade",
-                                    "wrap": true,
+                                    "text": "Sincerely, Manager Resolution Arcade",
+                                    "wrap": True,
                                     "color": "#e92efb",
                                     "size": "lg",
                                     "flex": 5
