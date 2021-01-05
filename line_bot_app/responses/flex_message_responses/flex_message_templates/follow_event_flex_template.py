@@ -27,11 +27,6 @@ def get_follow_event_flex_message(profileName="user"):
                    r"\u0026h=350",
             "size": "full",
             "aspectMode": "cover",
-            "action": {
-                "type": "uri",
-                "uri": "http://linecorp.com/"
-            },
-            "animated": True,
             "aspectRatio": "20:13"
         },
         "body": {
