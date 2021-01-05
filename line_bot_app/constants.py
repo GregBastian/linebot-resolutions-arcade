@@ -22,9 +22,11 @@ class ExtendedEnum(Enum):
 class GameNames(ExtendedEnum):
     FORTUNE_TELLER = "Fortune Teller"
 
+
 class GeneralImages(ExtendedEnum):
     WELCOME_ARCADE = "https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress&cs=tinysrgb&h" \
                      "=350 "
+
 
 class GameImages(ExtendedEnum):
     FORTUNE_TELLER = "lmao"
@@ -32,11 +34,3 @@ class GameImages(ExtendedEnum):
 
 class Images(ExtendedEnum):
     IMAGE = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png"
-    FORTUNE_TELLER = "lmao"
-
-
-ENV = getenv.get("ENVIRONMENT", "LOCAL")
-if ENV == "ENVIRONMENT":
-    GAME_IMAGES = ImagePlaceholder.IMAGE.value
-else:
-    IMAGES = Game
