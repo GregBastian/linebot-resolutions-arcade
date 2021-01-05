@@ -22,6 +22,9 @@ class ExtendedEnum(Enum):
 class GameNames(ExtendedEnum):
     FORTUNE_TELLER = "Fortune Teller"
 
+class GeneralImages(ExtendedEnum):
+    WELCOME_ARCADE = "https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress&cs=tinysrgb&h" \
+                     "=350 "
 
 class GameImages(ExtendedEnum):
     FORTUNE_TELLER = "lmao"
