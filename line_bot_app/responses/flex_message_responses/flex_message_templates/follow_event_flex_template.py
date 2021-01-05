@@ -23,7 +23,8 @@ def get_follow_event_flex_message(profileName="user"):
         },
         "hero": {
             "type": "image",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+            "url": r"https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress\u0026cs"
+                   r"=tinysrgb\u0026h=350", 
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "20:13"
@@ -75,21 +76,6 @@ def get_follow_event_flex_message(profileName="user"):
                                     "size": "lg"
                                 }
                             ],
-                            "paddingAll": "sm"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "baseline",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "Pintu kami akan selalu terbuka untukmu.",
-                                    "wrap": True,
-                                    "color": "#fb9eae",
-                                    "size": "lg"
-                                }
-                            ],
-                            "margin": "sm",
                             "paddingAll": "sm"
                         },
                         {
