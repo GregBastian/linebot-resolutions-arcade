@@ -122,6 +122,10 @@ def get_follow_event_flex_message(profileName="user"):
                             "paddingStart": "sm"
                         }
                     ]
+                },
+                {
+                    "type": "spacer",
+                    "size": "sm"
                 }
             ],
             "backgroundColor": "#00284a"
