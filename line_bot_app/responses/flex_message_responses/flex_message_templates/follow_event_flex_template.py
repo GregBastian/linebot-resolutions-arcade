@@ -13,7 +13,7 @@ def get_follow_event_flex_message(profileName="user"):
                     "type": "text",
                     "text": "--Resolution Arcade--",
                     "weight": "bold",
-                    "size": "xxl",
+                    "size": "xl",
                     "color": "#e3e4e6",
                     "offsetStart": "sm",
                     "align": "center"
@@ -36,7 +36,7 @@ def get_follow_event_flex_message(profileName="user"):
                     "type": "text",
                     "text": f"Hello, {profileName}!",
                     "weight": "bold",
-                    "size": "xxl",
+                    "size": "xl",
                     "color": "#e3e4e6",
                     "offsetStart": "sm"
                 },
@@ -122,10 +122,6 @@ def get_follow_event_flex_message(profileName="user"):
                             "paddingStart": "sm"
                         }
                     ]
-                },
-                {
-                    "type": "spacer",
-                    "size": "sm"
                 }
             ],
             "backgroundColor": "#00284a"
