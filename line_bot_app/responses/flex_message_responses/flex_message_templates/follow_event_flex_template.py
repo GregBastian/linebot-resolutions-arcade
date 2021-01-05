@@ -123,9 +123,9 @@ def get_follow_event_flex_message(profileName="user"):
                 #         }
                 #     ]
                 # },
-                {
-                    "type": "spacer"
-                }
+                # {
+                #     "type": "spacer"
+                # }
             ],
             "backgroundColor": "#00284a"
         }
