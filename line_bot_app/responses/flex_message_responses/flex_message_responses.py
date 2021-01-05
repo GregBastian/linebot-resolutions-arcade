@@ -15,10 +15,10 @@ from line_bot_app.responses.flex_message_responses.flex_message_templates.follow
 class FlexResponses:
     def received_follow_event(self, event, line_bot_api):
         idUser = event.source.user_id
-        profileName = line_bot_api.get_profile(idUser)
+        profile = line_bot_api.get_profile(idUser)
         line_bot_api.reply_message(
             event.reply_token,
-            FlexSendMessage(alt_text=f"Welcome, {profileName}", contents=get_follow_event_flex_message(profileName))
+            FlexSendMessage(alt_text=f"Welcome, {profileName}", contents=get_follow_event_flex_message(profile.display_name))
         )
 
 flex_responses_obj = FlexResponses()
