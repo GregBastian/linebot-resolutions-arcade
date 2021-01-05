@@ -4,29 +4,16 @@
 def get_follow_event_flex_message(profileName="user"):
     return {
         "type": "bubble",
-        "size": "giga",
-        "header": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                {
-                    "type": "text",
-                    "text": "--Resolution Arcade--",
-                    "weight": "bold",
-                    "size": "xxl",
-                    "color": "#e3e4e6",
-                    "offsetStart": "sm",
-                    "align": "center"
-                }
-            ],
-            "backgroundColor": "#00284a"
-        },
         "hero": {
             "type": "image",
             "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
             "size": "full",
+            "aspectRatio": "20:13",
             "aspectMode": "cover",
-            "aspectRatio": "20:13"
+            "action": {
+                "type": "uri",
+                "uri": "http://linecorp.com/"
+            }
         },
         "body": {
             "type": "box",
@@ -34,11 +21,49 @@ def get_follow_event_flex_message(profileName="user"):
             "contents": [
                 {
                     "type": "text",
-                    "text": f"Hello, {profileName}!",
+                    "text": "Brown Cafe",
                     "weight": "bold",
-                    "size": "xxl",
-                    "color": "#e3e4e6",
-                    "offsetStart": "sm"
+                    "size": "xl"
+                },
+                {
+                    "type": "box",
+                    "layout": "baseline",
+                    "margin": "md",
+                    "contents": [
+                        {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                        },
+                        {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                        },
+                        {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                        },
+                        {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                        },
+                        {
+                            "type": "icon",
+                            "size": "sm",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                        },
+                        {
+                            "type": "text",
+                            "text": "4.0",
+                            "size": "sm",
+                            "color": "#999999",
+                            "margin": "md",
+                            "flex": 0
+                        }
+                    ]
                 },
                 {
                     "type": "box",
@@ -53,15 +78,20 @@ def get_follow_event_flex_message(profileName="user"):
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Selamat datang ke Resolution Arcade.",
-                                    "wrap": True,
-                                    "color": "#fb9eae",
-                                    "size": "lg",
-                                    "flex": 5,
-                                    "margin": "none"
+                                    "text": "Place",
+                                    "color": "#aaaaaa",
+                                    "size": "sm",
+                                    "flex": 1
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                                    "wrap": true,
+                                    "color": "#666666",
+                                    "size": "sm",
+                                    "flex": 5
                                 }
-                            ],
-                            "paddingAll": "sm"
+                            ]
                         },
                         {
                             "type": "box",
@@ -70,68 +100,55 @@ def get_follow_event_flex_message(profileName="user"):
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Mainkan semua permainan yang kamu mau. Semoga kamu menikmati waktumu disini.",
-                                    "wrap": True,
-                                    "color": "#fb9eae",
-                                    "size": "lg",
-                                    "flex": 5
-                                }
-                            ],
-                            "paddingAll": "sm"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "baseline",
-                            "contents": [
+                                    "text": "Time",
+                                    "color": "#aaaaaa",
+                                    "size": "sm",
+                                    "flex": 1
+                                },
                                 {
                                     "type": "text",
-                                    "text": "Pintu kami akan selalu terbuka untukmu.",
-                                    "wrap": True,
-                                    "color": "#fb9eae",
-                                    "size": "lg",
+                                    "text": "10:00 - 23:00",
+                                    "wrap": true,
+                                    "color": "#666666",
+                                    "size": "sm",
                                     "flex": 5
                                 }
-                            ],
-                            "margin": "sm",
-                            "paddingAll": "sm"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "baseline",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "Sincerely, Manager Resolution Arcade",
-                                    "wrap": True,
-                                    "color": "#e92efb",
-                                    "size": "lg",
-                                    "flex": 5
-                                }
-                            ],
-                            "margin": "sm",
-                            "paddingAll": "sm"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "baseline",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "[ @198ynrsq ]",
-                                    "wrap": True,
-                                    "color": "#e92efb",
-                                    "size": "md",
-                                    "flex": 5
-                                }
-                            ],
-                            "paddingStart": "sm"
+                            ]
                         }
                     ]
+                }
+            ]
+        },
+        "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+                {
+                    "type": "button",
+                    "style": "link",
+                    "height": "sm",
+                    "action": {
+                        "type": "uri",
+                        "label": "CALL",
+                        "uri": "https://linecorp.com"
+                    }
                 },
                 {
-                    "type": "spacer"
+                    "type": "button",
+                    "style": "link",
+                    "height": "sm",
+                    "action": {
+                        "type": "uri",
+                        "label": "WEBSITE",
+                        "uri": "https://linecorp.com"
+                    }
+                },
+                {
+                    "type": "spacer",
+                    "size": "sm"
                 }
             ],
-            "backgroundColor": "#00284a"
+            "flex": 0
         }
     }

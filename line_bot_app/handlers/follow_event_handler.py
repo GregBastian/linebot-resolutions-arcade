@@ -8,6 +8,7 @@ Created on 05/01/2021
 from line_bot_app.responses.flex_message_responses.flex_message_responses import \
     flex_responses_obj
 
+
 class UserFollowEventHandlers:
     def user_follow_event_handler_function(self, event, line_bot_api):
         flex_responses_obj.received_follow_event(event, line_bot_api)
