@@ -17,7 +17,7 @@ def create_app(line_bot_api, handler):
 
     logging.basicConfig(level=logging.INFO)
 
-    @app.route("/home")
+    @app.route("/check")
     def homepage_test():
         return {
             "message": "Hello World",
@@ -37,6 +37,14 @@ def create_app(line_bot_api, handler):
         except InvalidSignatureError:
             abort(400)
         return 'OK'
+
+    @handler.add(FollowEvent)
+    def user_follow_event(event):
+        idUser = event.source.user_id
+        profile = line_bot_api.get_profile(idUser)
+        app.logger.info(f"Received Follow event from {idUser}")
+
+
 
     @handler.add(MessageEvent, message=TextMessage)
     def handle_message(event):
