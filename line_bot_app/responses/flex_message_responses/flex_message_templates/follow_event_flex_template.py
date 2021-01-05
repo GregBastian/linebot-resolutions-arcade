@@ -57,7 +57,6 @@ def get_follow_event_flex_message(profileName="user"):
                                     "wrap": True,
                                     "color": "#fb9eae",
                                     "size": "lg",
-                                    "flex": 5
                                 }
                             ],
                             "paddingAll": "sm"
@@ -87,8 +86,7 @@ def get_follow_event_flex_message(profileName="user"):
                                     "text": "Pintu kami akan selalu terbuka untukmu.",
                                     "wrap": True,
                                     "color": "#fb9eae",
-                                    "size": "lg",
-                                    "flex": 5
+                                    "size": "lg"
                                 }
                             ],
                             "margin": "sm",
@@ -103,8 +101,7 @@ def get_follow_event_flex_message(profileName="user"):
                                     "text": "Sincerely, Manager Resolution Arcade",
                                     "wrap": True,
                                     "color": "#e92efb",
-                                    "size": "lg",
-                                    "flex": 5
+                                    "size": "lg"
                                 }
                             ],
                             "margin": "sm",
@@ -119,8 +116,7 @@ def get_follow_event_flex_message(profileName="user"):
                                     "text": "[ @198ynrsq ]",
                                     "wrap": True,
                                     "color": "#e92efb",
-                                    "size": "md",
-                                    "flex": 5
+                                    "size": "md"
                                 }
                             ],
                             "paddingStart": "sm"
