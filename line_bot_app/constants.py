@@ -6,7 +6,7 @@ Created on 01/01/2021
 @email: greg.sebastian@sprintasia.co.id / ivansebastian60@gmail.com
 """
 from enum import Enum, auto
-from os import getenv
+import os
 
 
 class ExtendedEnum(Enum):
@@ -32,5 +32,8 @@ class GameImages(ExtendedEnum):
     FORTUNE_TELLER = "lmao"
 
 
-class Images(ExtendedEnum):
+class ImagePlaceHolder(ExtendedEnum):
     IMAGE = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png"
+
+
+DATABASE_URL = os.getenv("postgres://bwyfmcorftpnzx:d62ae2e86f370c6db7dccd990b8f8034531aff9324595976fdcfec78a6129a7d@ec2-54-85-80-92.compute-1.amazonaws.com:5432/dc0vqgch21h2ba")

@@ -1,6 +1,7 @@
 # some future comment
 from line_bot_app.constants import GeneralImages
 
+
 def get_follow_event_flex_message(profileName="user"):
     return {
         "type": "bubble",
@@ -11,7 +12,7 @@ def get_follow_event_flex_message(profileName="user"):
             "contents": [
                 {
                     "type": "text",
-                    "text": "--Resolution Arcade--",
+                    "text": "--Resolutions Arcade--",
                     "weight": "bold",
                     "size": "xl",
                     "color": "#e3e4e6",
@@ -83,7 +84,7 @@ def get_follow_event_flex_message(profileName="user"):
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Sincerely, Manager Resolution Arcade",
+                                    "text": "Sincerely, Manager Resolutions Arcade",
                                     "wrap": True,
                                     "color": "#e92efb",
                                     "size": "lg"

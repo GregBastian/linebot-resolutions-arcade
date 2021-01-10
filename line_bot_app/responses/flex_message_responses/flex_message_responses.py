@@ -22,4 +22,5 @@ class FlexResponses:
                             contents=get_follow_event_flex_message(profile.display_name))
         )
 
+
 flex_responses_obj = FlexResponses()

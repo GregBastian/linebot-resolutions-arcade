@@ -43,13 +43,18 @@ def create_app(line_bot_api, handler):
     @handler.add(FollowEvent)
     def user_follow_event(event):
         idUser = event.source.user_id
-        app.logger.info(f"Received Follow event from {idUser}")
+        app.logger.info(f"Received Follow Event from {idUser}")
         user_follow_event_handlers_obj.user_follow_event_handler_function(event, line_bot_api)
 
     @handler.add(MessageEvent, message=TextMessage)
     def handle_message(event):
+        idUser = event.source.user_id
+        app.logger.info(f"Received Message Event from {idUser}")
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=event.message.text))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=event.message.text + "# 2"))
 
     return app
