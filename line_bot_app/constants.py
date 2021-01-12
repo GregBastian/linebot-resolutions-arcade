@@ -19,8 +19,11 @@ class ExtendedEnum(Enum):
         return list(map(lambda c: c.value, cls))
 
 
-class GameNames(ExtendedEnum):
-    FORTUNE_TELLER = "Fortune Teller"
+class GamesBubbleInfo(ExtendedEnum):
+    FORTUNE_TELLER = ("Fortune Teller", "https://images.pexels.com/photos/6014327/pexels-photo-6014327.jpeg?auto"
+                                        "=compress&cs=tinysrgb&h=350",
+                      "Silahkan mendapatkan insight mengenai kehidupanmu kelak")
+
 
 
 class GeneralImages(ExtendedEnum):
@@ -36,4 +39,5 @@ class ImagePlaceHolder(ExtendedEnum):
     IMAGE = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png"
 
 
-DATABASE_URL = os.getenv("postgres://bwyfmcorftpnzx:d62ae2e86f370c6db7dccd990b8f8034531aff9324595976fdcfec78a6129a7d@ec2-54-85-80-92.compute-1.amazonaws.com:5432/dc0vqgch21h2ba")
+DATABASE_URL = os.getenv(
+    "postgres://bwyfmcorftpnzx:d62ae2e86f370c6db7dccd990b8f8034531aff9324595976fdcfec78a6129a7d@ec2-54-85-80-92.compute-1.amazonaws.com:5432/dc0vqgch21h2ba")

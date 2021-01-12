@@ -6,11 +6,11 @@ Created on 10/01/2021
 @email: greg.sebastian@sprintasia.co.id / ivansebastian60@gmail.com
 """
 # some future comment
-from line_bot_app.constants import ImagePlaceHolder
+from line_bot_app.constants import ImagePlaceHolder, GamesBubbleInfo
 
 
-def get_game_display_flex_message(gameName="game name", gameImage=ImagePlaceHolder.IMAGE.value,
-                                  gameTextMessage="game text"):
+def get_game_bubble_flex_message(gameName="game name", gameImage=ImagePlaceHolder.IMAGE.value,
+                                 gameTextMessage="game text"):
     return {
         "type": "bubble",
         "size": "kilo",
@@ -61,3 +61,15 @@ def get_game_display_flex_message(gameName="game name", gameImage=ImagePlaceHold
             "backgroundColor": "#00218a"
         }
     }
+
+def get_games_display_carousel_flex_message():
+    carouselContents = []
+    for gameName, gameImage, gameTextMessage in GamesBubbleInfo.values2list():
+        carouselContents.append(get_game_bubble_flex_message(gameName=gameName, gameTextMessage=gameTextMessage))
+        
+    return {
+        "type": "carousel",
+        "contents": carouselContents
+    }
+
+

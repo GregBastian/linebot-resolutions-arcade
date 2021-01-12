@@ -7,6 +7,7 @@ Created on 01/01/2021
 """
 from flask import Flask, request, abort
 import logging
+import os
 
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
@@ -18,6 +19,8 @@ def create_app(line_bot_api, handler):
     app = Flask(__name__)
 
     logging.basicConfig(level=logging.INFO)
+
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "")
 
     @app.route("/check")
     def homepage_test():
@@ -53,8 +56,5 @@ def create_app(line_bot_api, handler):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=event.message.text))
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=event.message.text + "# 2"))
 
     return app
