@@ -27,11 +27,10 @@ class FlexResponses:
 
     def show_games(self, event, line_bot_api):
         line_bot_api.reply_message(
-            event.reply_token,
-            [
-            TextSendMessage(text="Silahkan pilih permainan yang tersedia"),
-            FlexSendMessage(alt_text="Daftar Permainan",
-                            contents=get_games_display_carousel_flex_message())
+            event.reply_token, [
+                TextSendMessage(text="Silahkan pilih permainan yang tersedia"),
+                FlexSendMessage(alt_text="Daftar Permainan",
+                                contents=get_games_display_carousel_flex_message())
             ]
         )
 

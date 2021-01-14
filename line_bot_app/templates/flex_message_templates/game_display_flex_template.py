@@ -62,15 +62,14 @@ def get_game_bubble_flex_message(gameName="game name", gameImage=ImagePlaceHolde
         }
     }
 
+
 def get_games_display_carousel_flex_message():
     carouselContents = []
     for gameName, gameImage, gameTextMessage in GamesBubbleInfo.values2list():
         carouselContents.append(get_game_bubble_flex_message(gameName=gameName, gameImage=gameImage,
                                                              gameTextMessage=gameTextMessage))
-        
+
     return {
         "type": "carousel",
         "contents": carouselContents
     }
-
-

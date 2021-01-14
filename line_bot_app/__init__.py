@@ -54,10 +54,10 @@ def create_app(line_bot_api, handler):
     def handle_message(event):
         idUser = event.source.user_id
         message = event.message.text
-        app.logger.info(f"Received Message Event from {idUser} with text message {message}")
 
         if isinstance(event.source, SourceUser):
             # if still in lobby condition from database
-            arcade_lobby_text_message_event_handlers_obj.user_text_message_handler_function(event, line_bot_api, message)
+            app.logger.info(f"Received Message Event from {idUser} with text message '{message}'")
+            arcade_lobby_text_message_event_handlers_obj.arcade_lobby_text_message_handler_function(event, line_bot_api, message)
 
     return app
