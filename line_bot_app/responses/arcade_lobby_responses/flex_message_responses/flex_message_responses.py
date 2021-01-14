@@ -8,7 +8,7 @@ Created on 11/12/2020
 
 from linebot.models import FlexSendMessage, TextSendMessage
 
-from line_bot_app.templates.flex_message_templates \
+from line_bot_app.templates.flex_message_templates.follow_event_flex_template \
     import get_follow_event_flex_message
 
 from line_bot_app.templates.flex_message_templates.game_display_flex_template \
