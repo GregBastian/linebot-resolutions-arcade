@@ -13,6 +13,7 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
 
 from line_bot_app.handlers.follow_event_handler import user_follow_event_handlers_obj
+from line_bot_app.handlers.arcade_lobby.arcade_lobby_text_message_handler import arcade_lobby_text_message_event_handlers_obj
 
 
 def create_app(line_bot_api, handler):
@@ -52,12 +53,11 @@ def create_app(line_bot_api, handler):
     @handler.add(MessageEvent, message=TextMessage)
     def handle_message(event):
         idUser = event.source.user_id
-        app.logger.info(f"Received Message Event from {idUser}")
+        message = event.message.text
+        app.logger.info(f"Received Message Event from {idUser} with text message {message}")
 
         if isinstance(event.source, SourceUser):
             # if still in lobby condition from database
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=event.message.text))
+            arcade_lobby_text_message_event_handlers_obj.user_text_message_handler_function(event, line_bot_api, message)
 
     return app

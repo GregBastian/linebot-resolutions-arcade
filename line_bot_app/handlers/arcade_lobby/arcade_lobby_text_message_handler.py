@@ -12,14 +12,14 @@ from line_bot_app.responses.arcade_lobby_responses.flex_message_responses.flex_m
 from line_bot_app.constants import AcceptedTextMessages
 
 
-class UserTextMessageHandlers:
+class ArcadeLobbyTextMessageHandlers:
     def user_text_message_handler_function(self, event, line_bot_api, message=""):
         if message == AcceptedTextMessages.GAMES:
-            # returns TEXT message
-            flex_responses_obj.message_equals_admin(event, line_bot_api)
+            # returns TEXT message and FLEX message
+            flex_responses_obj.show_games(event, line_bot_api)
         
         elif message == AcceptedTextMessages.HELP.value:
             pass
 
 
-user_text_message_event_handlers_obj = UserTextMessageHandlers()
+arcade_lobby_text_message_event_handlers_obj = ArcadeLobbyTextMessageHandlers()
