@@ -21,23 +21,18 @@ class FlexResponses:
         profile = line_bot_api.get_profile(idUser)
         line_bot_api.reply_message(
             event.reply_token,
-            [
-                FlexSendMessage(alt_text=f"Welcome, {profile.display_name}",
-                                contents=get_follow_event_flex_message(profile.display_name))
-            ] + self.show_games()
+            FlexSendMessage(alt_text=f"Selamat Datang, {profile.display_name}",
+                            contents=get_follow_event_flex_message(profile.display_name))
         )
 
-    def show_games(self):
-        return [
+    def show_games(self, event, line_bot_api):
+        line_bot_api.reply_message(
+            event.reply_token,
+            [
             TextSendMessage(text="Silahkan pilih permainan yang tersedia"),
             FlexSendMessage(alt_text="Daftar Permainan",
                             contents=get_games_display_carousel_flex_message())
-        ]
-
-    def send_show_games(self, event, line_bot_api):
-        line_bot_api.reply_message(
-            event.reply_token,
-            self.show_games()
+            ]
         )
 
 

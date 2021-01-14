@@ -25,19 +25,20 @@ class GamesBubbleInfo(ExtendedEnum):
                       "Silahkan mendapatkan insight mengenai kehidupanmu kelak")
 
 
-
 class GeneralImages(ExtendedEnum):
     WELCOME_ARCADE = "https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress&cs=tinysrgb&h" \
                      "=350"
-
-
-class GameImages(ExtendedEnum):
-    FORTUNE_TELLER = "lmao"
 
 
 class ImagePlaceHolder(ExtendedEnum):
     IMAGE = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png"
 
 
+class AcceptedTextMessages(ExtendedEnum):
+    GAMES = "games"
+    HELP = "help"
+
+
 DATABASE_URL = os.getenv(
-    "postgres://bwyfmcorftpnzx:d62ae2e86f370c6db7dccd990b8f8034531aff9324595976fdcfec78a6129a7d@ec2-54-85-80-92.compute-1.amazonaws.com:5432/dc0vqgch21h2ba")
+    "postgres://bwyfmcorftpnzx:d62ae2e86f370c6db7dccd990b8f8034531aff9324595976fdcfec78a6129a7d@ec2-54-85-80-92"
+    ".compute-1.amazonaws.com:5432/dc0vqgch21h2ba")

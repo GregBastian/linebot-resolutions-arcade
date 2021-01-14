@@ -5,7 +5,7 @@ Created on 05/01/2021
 @office: Sprint Asia Technology
 @email: greg.sebastian@sprintasia.co.id / ivansebastian60@gmail.com
 """
-from line_bot_app.responses.flex_message_responses.flex_message_responses import \
+from line_bot_app.responses.arcade_lobby_responses.flex_message_responses.flex_message_responses import \
     flex_responses_obj
 
 

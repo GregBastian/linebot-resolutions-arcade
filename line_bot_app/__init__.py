@@ -53,8 +53,11 @@ def create_app(line_bot_api, handler):
     def handle_message(event):
         idUser = event.source.user_id
         app.logger.info(f"Received Message Event from {idUser}")
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=event.message.text))
+
+        if isinstance(event.source, SourceUser):
+            # if still in lobby condition from database
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=event.message.text))
 
     return app
