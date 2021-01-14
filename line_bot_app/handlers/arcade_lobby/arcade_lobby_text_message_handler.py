@@ -14,7 +14,7 @@ from line_bot_app.constants import AcceptedTextMessages
 
 class ArcadeLobbyTextMessageHandlers:
     def arcade_lobby_text_message_handler_function(self, event, line_bot_api, message=""):
-        if message == AcceptedTextMessages.GAMES:
+        if message == AcceptedTextMessages.GAMES.value:
             # returns TEXT message and FLEX message
             flex_responses_obj.show_games(event, line_bot_api)
         
