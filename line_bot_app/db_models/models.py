@@ -12,7 +12,7 @@ from datetime import datetime
 db = SQLAlchemy()
 
 
-def create_tables(db):
+def create_tables():
     db.create_all()
 
 

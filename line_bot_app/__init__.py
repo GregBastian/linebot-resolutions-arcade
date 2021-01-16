@@ -19,15 +19,17 @@ from line_bot_app.handlers.arcade_lobby.arcade_lobby_text_message_handler import
 
 def create_app(line_bot_api, handler):
     app = Flask(__name__)
+    db = SQLAlchemy(app)
 
     logging.basicConfig(level=logging.INFO)
 
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    db = SQLAlchemy(app)
-    from line_bot_app.db_models.models import create_tables
-    create_tables(db)
+    from line_bot_app.db_models.models import UserArcadeModel
+    db.init_app(app)
+    db.create_all()
+
 
     @app.route("/check")
     def homepage_test():
