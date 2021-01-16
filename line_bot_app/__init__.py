@@ -26,7 +26,8 @@ def create_app(line_bot_api, handler):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     db = SQLAlchemy(app)
-    from line_bot_app.db_models.models import UserArcadeModel
+    from line_bot_app.db_models.models import create_tables
+    create_tables(db)
 
     @app.route("/check")
     def homepage_test():

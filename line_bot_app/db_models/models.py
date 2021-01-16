@@ -11,7 +11,10 @@ from datetime import datetime
 
 db = SQLAlchemy()
 
-db.create_all()
+
+def create_tables(db):
+    db.create_all()
+
 
 # ==!! IMPORTANT !!==
 # If you modified the table design in the database please make sure that you
