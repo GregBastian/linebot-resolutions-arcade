@@ -14,22 +14,22 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
 
 from line_bot_app.handlers.follow_event_handler import user_follow_event_handlers_obj
-from line_bot_app.handlers.arcade_lobby.arcade_lobby_text_message_handler import arcade_lobby_text_message_event_handlers_obj
+from line_bot_app.handlers.arcade_lobby.arcade_lobby_text_message_handler import \
+    arcade_lobby_text_message_event_handlers_obj
 
 
 def create_app(line_bot_api, handler):
     app = Flask(__name__)
-    db = SQLAlchemy(app)
 
     logging.basicConfig(level=logging.INFO)
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "")
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL",
+                                                      "mysql+pymysql://root@localhost:3306/test")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    from line_bot_app.db_models.models import UserArcadeModel
+    from line_bot_app.db_models.models import UserArcadeModel, db
     db.init_app(app)
     db.create_all()
-
 
     @app.route("/check")
     def homepage_test():
@@ -66,6 +66,7 @@ def create_app(line_bot_api, handler):
         if isinstance(event.source, SourceUser):
             # if still in lobby condition from database
             app.logger.info(f"Received Message Event from {idUser} with text message '{message}'")
-            arcade_lobby_text_message_event_handlers_obj.arcade_lobby_text_message_handler_function(event, line_bot_api, message)
+            arcade_lobby_text_message_event_handlers_obj.arcade_lobby_text_message_handler_function(event, line_bot_api,
+                                                                                                    message)
 
     return app
