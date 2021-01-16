@@ -11,6 +11,7 @@ from datetime import datetime
 
 db = SQLAlchemy()
 
+db.create_all()
 
 # ==!! IMPORTANT !!==
 # If you modified the table design in the database please make sure that you
@@ -26,7 +27,7 @@ db = SQLAlchemy()
 #         }
 
 
-class ArcadeUserModel(db.Model):
+class UserArcadeModel(db.Model):
     __tablename__ = "user_arcade"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.String(33), nullable=False, unique=True)
