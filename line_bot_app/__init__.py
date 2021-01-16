@@ -29,7 +29,7 @@ def create_app(line_bot_api, handler):
 
     from line_bot_app.db_models.models import UserArcadeModel, db
     db.init_app(app)
-    db.create_all()
+    db.create_all(app=app)
 
     @app.route("/check")
     def homepage_test():
