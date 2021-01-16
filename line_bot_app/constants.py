@@ -19,10 +19,37 @@ class ExtendedEnum(Enum):
         return list(map(lambda c: c.value, cls))
 
 
+class GamesNames(ExtendedEnum):
+    FORTUNE_TELLER = "Fortune Teller"
+    FLAG_QUIZ = "Flag Quiz"
+
+
+class GamesThumbnail(ExtendedEnum):
+    FORTUNE_TELLER = "https://images.pexels.com/photos/6014327/pexels-photo-6014327.jpeg?auto=compress&cs=tinysrgb&h" \
+                     "=350 "
+    FLAG_QUIZ = "https://images.pexels.com/photos/4468974/pexels-photo-4468974.jpeg?auto=compress&cs=tinysrgb&h=350"
+
+
+class GamesInfo(ExtendedEnum):
+    FORTUNE_TELLER = "Bertanyalah kepada sang peramal mengenai hasil dari resolusi tahun baru kamu pada akhir tahun " \
+                     "nanti"
+    FLAG_QUIZ = "Uji pengetahuan geografis-mu dengan menebak nama negara berdasarkan bendera yang ditampilkan"
+
+
+class GamesTextSendMessage(ExtendedEnum):
+    FORTUNE_TELLER = "fortune teller"
+    FLAG_QUIZ = "flag quiz"
+
+
 class GamesBubbleInfo(ExtendedEnum):
-    FORTUNE_TELLER = ("Fortune Teller", "https://images.pexels.com/photos/6014327/pexels-photo-6014327.jpeg?auto"
-                                        "=compress&cs=tinysrgb&h=350",
-                      "Silahkan mendapatkan insight mengenai kehidupanmu kelak")
+    FORTUNE_TELLER = (GamesNames.FORTUNE_TELLER.value,
+                      GamesThumbnail.FORTUNE_TELLER.value,
+                      GamesInfo.FORTUNE_TELLER.value,
+                      GamesTextSendMessage.FORTUNE_TELLER.value)
+    FLAG_QUIZ = (GamesNames.FLAG_QUIZ.value,
+                 GamesThumbnail.FLAG_QUIZ.value,
+                 GamesInfo.FLAG_QUIZ.value,
+                 GamesTextSendMessage.FLAG_QUIZ.value)
 
 
 class GeneralImages(ExtendedEnum):
@@ -38,7 +65,3 @@ class AcceptedTextMessages(ExtendedEnum):
     GAMES = "games"
     HELP = "help"
 
-
-DATABASE_URL = os.getenv(
-    "postgres://bwyfmcorftpnzx:d62ae2e86f370c6db7dccd990b8f8034531aff9324595976fdcfec78a6129a7d@ec2-54-85-80-92"
-    ".compute-1.amazonaws.com:5432/dc0vqgch21h2ba")

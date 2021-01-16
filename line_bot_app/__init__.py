@@ -6,6 +6,7 @@ Created on 01/01/2021
 @email: greg.sebastian@sprintasia.co.id / ivansebastian60@gmail.com
 """
 from flask import Flask, request, abort
+from flask_sqlalchemy import SQLAlchemy
 import logging
 import os
 
@@ -22,6 +23,11 @@ def create_app(line_bot_api, handler):
     logging.basicConfig(level=logging.INFO)
 
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "")
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    db = SQLAlchemy(app)
+
+    db.create_all()
 
     @app.route("/check")
     def homepage_test():

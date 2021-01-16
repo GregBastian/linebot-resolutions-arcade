@@ -9,8 +9,8 @@ Created on 10/01/2021
 from line_bot_app.constants import ImagePlaceHolder, GamesBubbleInfo
 
 
-def get_game_bubble_flex_message(gameName="game name", gameImage=ImagePlaceHolder.IMAGE.value,
-                                 gameTextMessage="game text"):
+def get_game_bubble_flex_message(gameName="game name", gameInfo="Lorem ipsum dolor sit amet",
+                                 gameImage=ImagePlaceHolder.IMAGE.value, gameTextMessage="game text"):
     return {
         "type": "bubble",
         "size": "kilo",
@@ -20,7 +20,7 @@ def get_game_bubble_flex_message(gameName="game name", gameImage=ImagePlaceHolde
             "contents": [
                 {
                     "type": "text",
-                    "text": gameName,
+                    "text": "gameName",
                     "size": "xl",
                     "weight": "bold",
                     "align": "center",
@@ -30,8 +30,8 @@ def get_game_bubble_flex_message(gameName="game name", gameImage=ImagePlaceHolde
             ],
             "backgroundColor": "#920075",
             "borderColor": "#f6019d",
-            "borderWidth": "semi-bold",
-            "cornerRadius": "none"
+            "borderWidth": "bold",
+            "cornerRadius": "md"
         },
         "hero": {
             "type": "image",
@@ -39,6 +39,19 @@ def get_game_bubble_flex_message(gameName="game name", gameImage=ImagePlaceHolde
             "size": "full",
             "aspectRatio": "20:13",
             "aspectMode": "cover"
+        },
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": gameInfo,
+                    "color": "#eecbe6",
+                    "wrap": True
+                }
+            ],
+            "backgroundColor": "#00218a"
         },
         "footer": {
             "type": "box",
@@ -65,8 +78,8 @@ def get_game_bubble_flex_message(gameName="game name", gameImage=ImagePlaceHolde
 
 def get_games_display_carousel_flex_message():
     carouselContents = []
-    for gameName, gameImage, gameTextMessage in GamesBubbleInfo.values2list():
-        carouselContents.append(get_game_bubble_flex_message(gameName=gameName, gameImage=gameImage,
+    for gameName, gameInfo, gameImage, gameTextMessage in GamesBubbleInfo.values2list():
+        carouselContents.append(get_game_bubble_flex_message(gameName=gameName, gameInfo=gameInfo, gameImage=gameImage,
                                                              gameTextMessage=gameTextMessage))
 
     return {
