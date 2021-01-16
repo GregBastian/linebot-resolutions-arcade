@@ -16,17 +16,17 @@ db = SQLAlchemy()
 # If you modified the table design in the database please make sure that you
 # edit this class accordingly and vice-versa
 
-class ExtendedModel(db.Model):
+# class ExtendedModel(db.Model):
+#
+#     @classmethod
+#     def as_dict(cls):
+#         return {
+#             attribute.name:
+#                 getattr(cls, attribute.name) for attribute in cls.__table__.columns
+#         }
 
-    @classmethod
-    def as_dict(cls):
-        return {
-            attribute.name:
-                getattr(cls, attribute.name) for attribute in cls.__table__.columns
-        }
 
-
-class ArcadeUserModel(ExtendedModel):
+class ArcadeUserModel(db.Model):
     __tablename__ = "user_arcade"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.String(33), nullable=False, unique=True)
