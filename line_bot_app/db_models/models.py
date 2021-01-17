@@ -26,14 +26,12 @@ class UserArcadeModel(db.Model):
     name_of_game_played = db.Column(db.String(25), nullable=False, default="")
     flag_game_score = db.Column(db.String(2), nullable=True, default="0")
 
-    def __init__(self, id_, user_id, date_created):
-        self.id_ = id_
+    def __init__(self, user_id):
         self.user_id = user_id
-        self.date_created = date_created
 
     @staticmethod
     def add_user(user_id):
-        newUser = UserArcadeModel(user_id)
+        newUser = UserArcadeModel(user_id=user_id)
         db.session.add(newUser)
         db.session.commit()
 
