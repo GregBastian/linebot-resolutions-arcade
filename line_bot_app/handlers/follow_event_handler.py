@@ -8,9 +8,16 @@ Created on 05/01/2021
 from line_bot_app.responses.arcade_lobby_responses.flex_message_responses.flex_message_responses import \
     flex_responses_obj
 
+from line_bot_app.db_models.models import UserArcadeModel
+
 
 class UserFollowEventHandlers:
     def user_follow_event_handler_function(self, event, line_bot_api):
+        user_id = event.source.user_id
+        if bool(UserArcadeModel.user_isExist_by_user_id(user_id)):
+            UserArcadeModel.reset_fields_by_user_id(user_id)
+        else:
+            UserArcadeModel.add_user(user_id)
         flex_responses_obj.received_follow_event(event, line_bot_api)
 
 
