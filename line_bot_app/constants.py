@@ -26,7 +26,7 @@ class GamesNames(ExtendedEnum):
 
 class GamesThumbnail(ExtendedEnum):
     FORTUNE_TELLER = "https://images.pexels.com/photos/6014327/pexels-photo-6014327.jpeg?auto=compress&cs=tinysrgb&h" \
-                     "=350 "
+                     "=350"
     FLAG_QUIZ = "https://images.pexels.com/photos/4468974/pexels-photo-4468974.jpeg?auto=compress&cs=tinysrgb&h=350"
 
 
