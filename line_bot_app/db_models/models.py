@@ -37,31 +37,31 @@ class UserArcadeModel(db.Model):
 
     @staticmethod
     def reset_fields_by_user_id(user_id):
-        userArcade = UserArcadeModel.query.filter_by(user_id=user_id)
+        userArcade = UserArcadeModel.query.filter_by(user_id=user_id).first()
         userArcade.is_playing_game = False
         userArcade.name_of_game_played = ""
         userArcade.flag_game_score = "0"
 
     @staticmethod
     def user_isExist_by_user_id(user_id):
-        userIsExist = UserArcadeModel.query.filter_by(user_id=user_id)
+        userIsExist = UserArcadeModel.query.filter_by(user_id=user_id).first()
         return bool(userIsExist)
 
     @staticmethod
     def get_user_by_user_id(user_id):
-        userArcade = UserArcadeModel.query.filter_by(user_id=user_id)
+        userArcade = UserArcadeModel.query.filter_by(user_id=user_id).first()
         return userArcade
 
     @staticmethod
     def set_game_by_user_id(user_id, gameName):
-        userArcade = UserArcadeModel.query.filter_by(user_id=user_id)
+        userArcade = UserArcadeModel.query.filter_by(user_id=user_id).first()
         userArcade.name_of_game_played = gameName
         userArcade.is_playing_game = True
         db.session.commit()
 
     @staticmethod
     def get_is_playing_game_by_user_id(user_id):
-        userArcade = UserArcadeModel.query.filter_by(user_id=user_id)
+        userArcade = UserArcadeModel.query.filter_by(user_id=user_id).first()
         return userArcade.is_playing_game
 
 
