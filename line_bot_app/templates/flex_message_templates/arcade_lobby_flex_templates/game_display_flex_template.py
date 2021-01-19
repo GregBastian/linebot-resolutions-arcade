@@ -9,8 +9,8 @@ Created on 10/01/2021
 from line_bot_app.constants import ImagePlaceHolder, GamesBubbleInfo
 
 
-def get_game_bubble_flex_message(gameName="game name", gameInfo="Lorem ipsum dolor sit amet",
-                                 gameImage=ImagePlaceHolder.IMAGE.value, gameTextMessage="game text"):
+def get_game_bubble_flex_message(gameName="game name", gameImage=ImagePlaceHolder.IMAGE.value,
+                                 gameInfo="Lorem ipsum dolor sit amet", gameTextMessage="game text"):
     return {
         "type": "bubble",
         "size": "kilo",
@@ -78,7 +78,7 @@ def get_game_bubble_flex_message(gameName="game name", gameInfo="Lorem ipsum dol
 
 def get_games_display_carousel_flex_message():
     carouselContents = []
-    for gameName, gameInfo, gameImage, gameTextMessage in GamesBubbleInfo.values2list():
+    for gameName, gameImage, gameInfo, gameTextMessage in GamesBubbleInfo.values2list():
         carouselContents.append(get_game_bubble_flex_message(gameName=gameName, gameInfo=gameInfo, gameImage=gameImage,
                                                              gameTextMessage=gameTextMessage))
 

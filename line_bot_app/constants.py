@@ -42,6 +42,7 @@ class GamesTextSendMessage(ExtendedEnum):
 
 
 class GamesBubbleInfo(ExtendedEnum):
+    # order of tuple should be game's name, image, info then text message
     FORTUNE_TELLER = (GamesNames.FORTUNE_TELLER.value,
                       GamesThumbnail.FORTUNE_TELLER.value,
                       GamesInfo.FORTUNE_TELLER.value,
