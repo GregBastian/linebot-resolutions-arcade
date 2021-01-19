@@ -71,7 +71,12 @@ def get_game_bubble_flex_message(gameName="game name", gameImage=ImagePlaceHolde
                 }
             ],
             "flex": 0,
-            "backgroundColor": "#00218a"
+            "backgroundColor": "#00218a",
+        },
+        "styles": {
+            "header": {
+                "backgroundColor": "#f6019d"
+            }
         }
     }
 
