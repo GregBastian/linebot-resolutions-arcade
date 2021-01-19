@@ -11,7 +11,7 @@ from linebot.models import FlexSendMessage, TextSendMessage
 from line_bot_app.templates.flex_message_templates.follow_event_flex_template \
     import get_follow_event_flex_message
 
-from line_bot_app.templates.flex_message_templates.game_display_flex_template \
+from line_bot_app.templates.flex_message_templates.arcade_lobby_flex_templates.game_display_flex_template \
     import get_games_display_carousel_flex_message
 
 

@@ -84,7 +84,7 @@ def get_follow_event_flex_message(profileName="user"):
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Sincerely, Manager Resolutions Arcade",
+                                    "text": "Dengan hormat, Manager Resolutions Arcade",
                                     "wrap": True,
                                     "color": "#e92efb",
                                     "size": "lg"

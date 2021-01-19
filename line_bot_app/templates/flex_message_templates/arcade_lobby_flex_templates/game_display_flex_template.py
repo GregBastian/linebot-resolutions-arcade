@@ -20,7 +20,7 @@ def get_game_bubble_flex_message(gameName="game name", gameInfo="Lorem ipsum dol
             "contents": [
                 {
                     "type": "text",
-                    "text": "gameName",
+                    "text": gameName,
                     "size": "xl",
                     "weight": "bold",
                     "align": "center",

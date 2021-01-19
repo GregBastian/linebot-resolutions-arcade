@@ -42,7 +42,6 @@ class UserArcadeModel(db.Model):
         userArcade.name_of_game_played = ""
         userArcade.flag_game_score = "0"
 
-
     @staticmethod
     def user_isExist_by_user_id(user_id):
         userIsExist = UserArcadeModel.query.filter_by(user_id=user_id)

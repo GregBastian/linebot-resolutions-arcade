@@ -61,7 +61,10 @@ class ImagePlaceHolder(ExtendedEnum):
     IMAGE = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png"
 
 
-class AcceptedTextMessages(ExtendedEnum):
+class FortuneTellerImage(ExtendedEnum):
+    FORTUNE_TELLER_THUMBNAIL = ""
+
+
+class AcceptedArcadeLobbyTextMessages(ExtendedEnum):
     GAMES = "games"
     HELP = "help"
-
