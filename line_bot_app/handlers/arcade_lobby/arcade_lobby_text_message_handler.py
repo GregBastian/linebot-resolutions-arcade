@@ -10,8 +10,11 @@ Created on 08/12/2020
 from line_bot_app.responses.fortune_teller_responses.flex_message_responses.flex_message_responses import \
     fortune_teller_flex_responses_obj
 
-from line_bot_app.responses.fortune_teller_responses.text_message_responses.text_message_responses import \
-    fortune_teller_text_message_response_obj
+from line_bot_app.responses.arcade_lobby_responses.flex_message_responses.flex_message_responses import \
+    arcade_lobby_flex_responses_obj
+
+from line_bot_app.responses.arcade_lobby_responses.text_message_responses.text_message_responses import \
+    arcade_lobby_text_message_response_obj
 
 from line_bot_app.constants import AcceptedArcadeLobbyTextMessages
 from line_bot_app.db_models.models import UserArcadeModel
@@ -28,10 +31,10 @@ class ArcadeLobbyTextMessageHandlers:
 
         # below are conditions if the user has not picked a game yet
         elif message == AcceptedArcadeLobbyTextMessages.GAMES.value:
-            fortune_teller_flex_responses_obj.show_games(event, line_bot_api)
+            arcade_lobby_flex_responses_obj.show_games(event, line_bot_api)
 
         elif message == AcceptedArcadeLobbyTextMessages.INFO.value:
-            fortune_teller_text_message_response_obj.get_arcade_lobby_info(event, line_bot_api)
+            arcade_lobby_text_message_response_obj.get_arcade_lobby_info(event, line_bot_api)
 
 
 arcade_lobby_text_message_event_handlers_obj = ArcadeLobbyTextMessageHandlers()
