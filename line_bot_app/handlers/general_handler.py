@@ -22,17 +22,14 @@ class ArcadeGeneralHandler:
         idUser = event.source.user_id
         userArcade = UserArcadeModel.get_user_by_user_id(idUser)
         if userArcade.is_playing_game:
-            logging.info("User is playing game")
             # below are conditions to check what game the user is playing
-            if UserArcadeModel.name_of_game_played == AcceptedArcadeLobbyTextMessages.FORTUNE_TELLER.value:
-                logging.info("User is playing fortuner teller")
+            if userArcade.name_of_game_played == AcceptedArcadeLobbyTextMessages.FORTUNE_TELLER.value:
                 fortune_teller_text_message_handler_obj.fortune_teller_text_message_handler_function(event,
                                                                                                      line_bot_api)
-            elif UserArcadeModel.name_of_game_played == AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value:
+            elif userArcade.name_of_game_played == AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value:
                 pass
 
         else:
-            logging.info("User is NOT playing game")
             arcade_lobby_text_message_event_handlers_obj.arcade_lobby_text_message_handler_function(event, line_bot_api)
 
 

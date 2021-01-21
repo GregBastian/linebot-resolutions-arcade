@@ -15,6 +15,7 @@ from linebot.models import *
 
 from line_bot_app.handlers.follow_event_handler import user_follow_event_handlers_obj
 from line_bot_app.handlers.general_handler import arcade_general_handler_obj
+from line_bot_app.handlers.unfollow_event_handler import user_unfollow_event_handlers_obj
 
 
 def create_app(line_bot_api, handler):
@@ -50,6 +51,12 @@ def create_app(line_bot_api, handler):
         except InvalidSignatureError:
             abort(400)
         return 'OK'
+
+    @handler.add(UnfollowEvent)
+    def user_unfollow_event(event):
+        idUser = event.source.user_id
+        app.logger.info(f"Received UnFollow Event from {idUser}")
+        user_unfollow_event_handlers_obj.user_unfollow_event_handler_function(event, line_bot_api)
 
     @handler.add(FollowEvent)
     def user_follow_event(event):
