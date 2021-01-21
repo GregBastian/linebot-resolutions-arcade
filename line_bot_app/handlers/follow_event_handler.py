@@ -15,9 +15,9 @@ class UserFollowEventHandlers:
     def user_follow_event_handler_function(self, event, line_bot_api):
         user_id = event.source.user_id
         if UserArcadeModel.user_isExist_by_user_id(user_id):
-            UserArcadeModel.add_user(user_id)
-        else:
             UserArcadeModel.reset_fields_by_user_id(user_id)
+        else:
+            UserArcadeModel.add_user(user_id)
 
         arcade_lobby_flex_responses_obj.received_follow_event(event, line_bot_api)
 
