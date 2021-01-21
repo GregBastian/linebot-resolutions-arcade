@@ -64,6 +64,13 @@ class UserArcadeModel(db.Model):
         userArcade = UserArcadeModel.query.filter_by(user_id=user_id).first()
         return userArcade.is_playing_game
 
+    @staticmethod
+    def set_game_stop_playing_by_user_id(user_id):
+        userArcade = UserArcadeModel.query.filter_by(user_id=user_id).first()
+        userArcade.name_of_game_played = ""
+        userArcade.is_playing_game = False
+        db.session.commit()
+
 
 class FortuneTellerModel(db.Model):
     __tablename__ = "fortune_teller_quotes"
@@ -95,8 +102,25 @@ class FortuneTellerModel(db.Model):
 
         return fortuneTeller.quote
 
-    # class FlagGameModel(db.Model):
-    #     __tablename__ = "fortune_teller_quotes"
-    #     id_ = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    #     number = db.Column(db.Integer)
-    #     quote = db.Column(db.Text(), nullable=False)
+class RichMenuModel(db.Model):
+    __tablename__ = "rich_menu_ids"
+    id_ = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    rich_menu_id = db.Column(db.String(41), nullable=False, unique=True)
+    rich_menu_name = db.Column(db.String(40), nullable=False)
+    rich_menu_desc = db.Column(db.String(300), nullable=False)
+
+    @staticmethod
+    def get_rich_menu_by_pk_id(richMenuId):
+        richMenu = RichMenuModel.query.filter_by(
+            id=richMenuId
+        ).first()
+
+        return richMenu.rich_menu_id
+
+    @staticmethod
+    def get_rich_menu_by_name(richMenuName):
+        richMenu = RichMenuModel.query.filter_by(
+            rich_menu_name=richMenuName
+        ).first()
+
+        return richMenu.rich_menu_name

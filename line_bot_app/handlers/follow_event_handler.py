@@ -6,7 +6,7 @@ Created on 05/01/2021
 @email: greg.sebastian@sprintasia.co.id / ivansebastian60@gmail.com
 """
 from line_bot_app.responses.arcade_lobby_responses.flex_message_responses.flex_message_responses import \
-    flex_responses_obj
+    arcade_lobby_flex_responses_obj
 
 from line_bot_app.db_models.models import UserArcadeModel
 
@@ -19,7 +19,7 @@ class UserFollowEventHandlers:
         else:
             UserArcadeModel.reset_fields_by_user_id(user_id)
 
-        flex_responses_obj.received_follow_event(event, line_bot_api)
+        arcade_lobby_flex_responses_obj.received_follow_event(event, line_bot_api)
 
 
 user_follow_event_handlers_obj = UserFollowEventHandlers()
