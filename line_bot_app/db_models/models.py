@@ -112,7 +112,7 @@ class RichMenuModel(db.Model):
     @staticmethod
     def get_rich_menu_by_pk_id(richMenuId):
         richMenu = RichMenuModel.query.filter_by(
-            id=richMenuId
+            id_=richMenuId
         ).first()
 
         return richMenu.rich_menu_id

@@ -31,7 +31,7 @@ class FortuneTellerTextMessageHandlers:
 
         elif message == AcceptedFortuneTellerTextMessages.BACK.value:
             line_bot_api.link_rich_menu_to_user(idUser,
-                                                RichMenuModel.get_rich_menu_by_name(RichMenuNames.ARCADE_LOBBY.value))
+                                                RichMenuModel.get_rich_menu_by_pk_id(1))
             UserArcadeModel.set_game_stop_playing_by_user_id(idUser)
             arcade_lobby_flex_responses_obj.show_games(event, line_bot_api)
 
