@@ -8,7 +8,7 @@ Created on 05/01/2021
 from line_bot_app.responses.arcade_lobby_responses.flex_message_responses.flex_message_responses import \
     arcade_lobby_flex_responses_obj
 
-from line_bot_app.db_models.models import UserArcadeModel
+from line_bot_app.db_models.models import UserArcadeModel, RichMenuModel
 
 
 class UserFollowEventHandlers:
@@ -16,6 +16,7 @@ class UserFollowEventHandlers:
         user_id = event.source.user_id
         if UserArcadeModel.user_isExist_by_user_id(user_id):
             UserArcadeModel.reset_fields_by_user_id(user_id)
+            line_bot_api.link_rich_menu_to_user(user_id, RichMenuModel.get_rich_menu_by_pk_id(1))
         else:
             UserArcadeModel.add_user(user_id)
 
