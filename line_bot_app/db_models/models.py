@@ -94,7 +94,7 @@ class FortuneTellerModel(db.Model):
     @staticmethod
     def get_random_quote():
         tableEntityLength = FortuneTellerModel.query.count()
-        random_number = randint(1, len(tableEntityLength))
+        random_number = randint(1, tableEntityLength)
 
         fortuneTeller = FortuneTellerModel.query.filter_by(
             number=random_number
