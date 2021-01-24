@@ -30,8 +30,10 @@ class FlexResponses:
         return choices2FlexMessage, trueCountryId
 
     def get_first_question(self, event, line_bot_api):
+        import logging
         choices2FlexMessage, trueCountryId = self.generate_question(event)
         idUser = event.source.user_id
+        logging.info(choices2FlexMessage, '<-A')
         line_bot_api.reply_message(
             event.reply_token,
             FlexSendMessage(alt_text=f"{AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title()} "
@@ -50,22 +52,22 @@ class FlexResponses:
 
         if UserFlagGameModel.check_true_option_by_user_id(idUser, message):
             UserFlagGameModel.increment_score_by_user_id(idUser)
-            userTextRightOrWrong = TextSendMessage("Tepat! Jawaban Kamu benar...")
+            userTextRightOrWrong = "Tepat! Jawaban Kamu benar..."
 
         else:
-            userTextRightOrWrong = TextSendMessage("Ups! Jawaban Kamu kurang tepat...")
+            userTextRightOrWrong = "Ups! Jawaban Kamu kurang tepat..."
 
         UserFlagGameModel.set_all_options_as_false_by_user_id(idUser)
         choices2FlexMessage, trueCountryId = self.generate_question(event)
         line_bot_api.reply_message(
             event.reply_token,
             [
-                userTextRightOrWrong,
+                TextSendMessage(userTextRightOrWrong),
                 FlexSendMessage(alt_text=f"{AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title()} "
                                          f"Pertanyaan ke-{FlagQuizConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value}",
                                 contents=get_flag_quiz_bubble_flex_message(
-                                    gameName=AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title()
-                                    , selectedFlagImage=FlagGameQuestionsModel.get_flag_by_id(trueCountryId),
+                                    gameName=AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title(),
+                                    selectedFlagImage=FlagGameQuestionsModel.get_flag_by_id(trueCountryId),
                                     currentQuestionCount=UserFlagGameModel.get_game_counter_by_user_id(idUser),
                                     choices=choices2FlexMessage))
             ]
