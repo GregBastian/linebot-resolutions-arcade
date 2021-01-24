@@ -20,8 +20,8 @@ class FlexResponses:
     @staticmethod
     def generate_question(event):
         idUser = event.source.user_id
-        trueCountryId = random.randint(1, 82)
-        falseCountryIds = random.sample([x for x in range(1, 83) if x != trueCountryId], 4)
+        trueCountryId = random.randint(1, 81)
+        falseCountryIds = random.sample([x for x in range(1, 82) if x != trueCountryId], 4)
         trueChoice = random.choice(FlagQuizConstants.OPTIONS.value)
         choices2FlexMessage = {trueChoice: FlagGameQuestionsModel.get_name_by_id(trueCountryId)}
         for pos, el in enumerate(choice for choice in FlagQuizConstants.OPTIONS.value if choice != trueChoice):
