@@ -13,11 +13,6 @@ def get_flag_quiz_bubble_flex_message(gameName="Flag Quiz", selectedFlagImage=Im
     if choices is None:
         choices = {}
 
-    import logging
-
-    logging.info(f"{choices} <-B")
-    logging.info(f"{selectedFlagImage} <--- FLAG URL")
-
     return {
         "type": "bubble",
         "size": "kilo",

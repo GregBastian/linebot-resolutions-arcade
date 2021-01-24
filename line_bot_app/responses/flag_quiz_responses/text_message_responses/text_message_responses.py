@@ -26,7 +26,7 @@ class FlagQuizTextResponses:
     def get_final_score_game_when_finish(self, event, line_bot_api):
         idUser = event.source.user_id
 
-        currentScore = UserFlagGameModel.get_game_counter_by_user_id(user_id=idUser)
+        currentScore = UserFlagGameModel.get_score_by_user_id(user_id=idUser)
         userHighScore = UserFlagGameModel.get_hi_score_by_user_id(user_id=idUser)
         if currentScore > userHighScore:
             UserFlagGameModel.set_hi_score_by_user_id(idUser, currentScore)
@@ -39,8 +39,8 @@ class FlagQuizTextResponses:
         final_msg = f"---PERMAINAN SELESAI---\n\n"\
                     f"Beriku rincian skor kamu:\n"\
                     f"Skor Akhir: {currentScore}\n" \
-                    f"Skor Tertinggi: {UserFlagGameModel.get_hi_score_by_user_id(idUser)}" \
-                    f"Terima kasih telah bermain game ini. Jika ingin ulang, maka bisa memilih game" \
+                    f"Skor Tertinggi: {UserFlagGameModel.get_hi_score_by_user_id(idUser)}\n\n" \
+                    f"Terima kasih telah bermain game ini. Jika ingin mengulang, maka bisa memilih game" \
                     f"ini kembali ketika berada di Arcade Lobby :)"
 
         line_bot_api.reply_message(
