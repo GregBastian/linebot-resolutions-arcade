@@ -23,7 +23,7 @@ class FlexResponses:
         trueCountryId = random.randint(1, 82)
         falseCountryIds = random.sample([x for x in range(1, 83) if x != trueCountryId], 4)
         trueChoice = random.choice(FlagQuizConstants.OPTIONS.value)
-        choices2FlexMessage = {trueChoice: trueCountryId}
+        choices2FlexMessage = {trueChoice: FlagGameQuestionsModel.get_name_by_id(trueCountryId)}
         for pos, el in enumerate(choice for choice in FlagQuizConstants.OPTIONS.value if choice != trueChoice):
             choices2FlexMessage[el] = FlagGameQuestionsModel.get_name_by_id(falseCountryIds[pos])
         UserFlagGameModel.set_selected_option_to_true_by_user_id(idUser, trueChoice)
