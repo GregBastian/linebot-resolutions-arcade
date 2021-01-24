@@ -88,6 +88,7 @@ class UserFlagGameModel(db.Model):
     def add_user(user_id):
         newUserFlagGame = UserFlagGameModel(user_id=user_id)
         db.session.add(newUserFlagGame)
+        db.session.commit()
 
     @staticmethod
     def get_user_by_user_id(user_id):
