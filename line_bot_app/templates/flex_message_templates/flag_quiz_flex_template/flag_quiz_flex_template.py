@@ -15,7 +15,7 @@ def get_flag_quiz_bubble_flex_message(gameName="Flag Quiz", selectedFlagImage=Im
 
     import logging
 
-    logging.info(choices, '<-B')
+    logging.info(f"{choices} <-B")
     logging.info(f"{selectedFlagImage} <--- FLAG URL")
 
     return {

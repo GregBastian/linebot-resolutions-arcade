@@ -33,7 +33,7 @@ class FlexResponses:
         import logging
         choices2FlexMessage, trueCountryId = self.generate_question(event)
         idUser = event.source.user_id
-        logging.info(choices2FlexMessage, '<-A')
+        logging.info(f'{choices2FlexMessage} <-A')
         line_bot_api.reply_message(
             event.reply_token,
             FlexSendMessage(alt_text=f"{AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title()} "
