@@ -31,9 +31,7 @@ class UserArcadeModel(db.Model):
     @staticmethod
     def add_user(user_id):
         newUser = UserArcadeModel(user_id=user_id)
-        newUserFlagGame = UserFlagGameModel(user_id=user_id)
         db.session.add(newUser)
-        db.session.add(newUserFlagGame)
         db.session.commit()
 
     @staticmethod
@@ -85,6 +83,11 @@ class UserFlagGameModel(db.Model):
     option_B = db.Column(db.Boolean, nullable=False, default=False)
     option_C = db.Column(db.Boolean, nullable=False, default=False)
     option_D = db.Column(db.Boolean, nullable=False, default=False)
+
+    @staticmethod
+    def add_user(user_id):
+        newUserFlagGame = UserFlagGameModel(user_id=user_id)
+        db.session.add(newUserFlagGame)
 
     @staticmethod
     def get_user_by_user_id(user_id):

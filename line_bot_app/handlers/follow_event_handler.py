@@ -8,7 +8,7 @@ Created on 05/01/2021
 from line_bot_app.responses.arcade_lobby_responses.flex_message_responses.flex_message_responses import \
     arcade_lobby_flex_responses_obj
 
-from line_bot_app.db_models.models import UserArcadeModel, RichMenuModel
+from line_bot_app.db_models.models import UserArcadeModel, RichMenuModel, UserFlagGameModel
 
 
 class UserFollowEventHandlers:
@@ -19,6 +19,7 @@ class UserFollowEventHandlers:
             line_bot_api.link_rich_menu_to_user(user_id, RichMenuModel.get_rich_menu_by_pk_id(1))
         else:
             UserArcadeModel.add_user(user_id)
+            UserFlagGameModel.add_user(user_id)
 
         arcade_lobby_flex_responses_obj.received_follow_event(event, line_bot_api)
 
