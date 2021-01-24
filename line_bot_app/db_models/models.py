@@ -77,7 +77,7 @@ class UserFlagGameModel(db.Model):
     id_ = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.String(33), nullable=False, unique=True)
     game_score = db.Column(db.Integer, nullable=False, default=0)
-    game_hiscore = db.Column(db.Integer, nullable=True, default=0)
+    game_high_score = db.Column(db.Integer, nullable=True, default=0)
     game_question_counter = db.Column(db.Integer, nullable=False, default=1)
     option_A = db.Column(db.Boolean, nullable=False, default=False)
     option_B = db.Column(db.Boolean, nullable=False, default=False)
@@ -109,18 +109,18 @@ class UserFlagGameModel(db.Model):
     @staticmethod
     def update_hi_score(user_id, newScore=10):
         userFlagGameModel = UserFlagGameModel.query.filter_by(user_id=user_id).first()
-        userFlagGameModel.game_hiscore = newScore
+        userFlagGameModel.game_high_score = newScore
         db.session.commit()
 
     @staticmethod
     def get_hi_score_by_user_id(user_id):
         userFlagGameModel = UserFlagGameModel.query.filter_by(user_id=user_id).first()
-        return userFlagGameModel.game_hiscore
+        return userFlagGameModel.game_high_score
 
     @staticmethod
     def set_hi_score_by_user_id(user_id, newScore):
         userFlagGameModel = UserFlagGameModel.query.filter_by(user_id=user_id).first()
-        userFlagGameModel.game_hiscore = newScore
+        userFlagGameModel.game_high_score = newScore
         db.session.commit()
 
     @staticmethod
