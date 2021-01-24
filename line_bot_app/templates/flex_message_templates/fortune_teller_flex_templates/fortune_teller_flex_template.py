@@ -6,7 +6,7 @@ Created on 19/01/2021
 @email: greg.sebastian@sprintasia.co.id / ivansebastian60@gmail.com
 """
 
-from line_bot_app.constants import ImagePlaceHolder
+from line_bot_app.constants import ImagePlaceHolder, AcceptedArcadeLobbyTextMessages
 
 
 def get_fortune_teller_bubble_flex_message(fortuneTellerThumbnail=ImagePlaceHolder.IMAGE.value,
@@ -20,7 +20,7 @@ def get_fortune_teller_bubble_flex_message(fortuneTellerThumbnail=ImagePlaceHold
             "contents": [
                 {
                     "type": "text",
-                    "text": "gameName",
+                    "text": AcceptedArcadeLobbyTextMessages.FORTUNE_TELLER.value.title(),
                     "size": "xl",
                     "weight": "bold",
                     "align": "center",
@@ -43,6 +43,7 @@ def get_fortune_teller_bubble_flex_message(fortuneTellerThumbnail=ImagePlaceHold
         "body": {
             "type": "box",
             "layout": "vertical",
+            "spacing": "sm",
             "contents": [
                 {
                     "type": "text",

@@ -19,7 +19,7 @@ class ExtendedEnum(Enum):
         return list(map(lambda c: c.value, cls))
 
 
-class GeneralImages(ExtendedEnum):
+class FollowEventImage(ExtendedEnum):
     WELCOME_ARCADE = "https://images.pexels.com/photos/1601774/pexels-photo-1601774.jpeg?auto=compress&cs=tinysrgb&h" \
                      "=350"
 
@@ -29,6 +29,17 @@ class AcceptedArcadeLobbyTextMessages(ExtendedEnum):
     INFO = "info"
     FORTUNE_TELLER = "fortune teller"
     FLAG_QUIZ = "flag quiz"
+
+
+class FlagQuizConstants(ExtendedEnum):
+    OPTIONS = ('A', 'B', 'C', 'D')
+    FLAG_QUIZ_TOTAL_QUESTIONS = 10
+
+
+class AcceptedFlagQuizTextMessages(ExtendedEnum):
+    BACK = "back"
+    OPTIONS = ('A', 'B', 'C', 'D')
+    HELP = "help"
 
 
 class AcceptedFortuneTellerTextMessages(ExtendedEnum):

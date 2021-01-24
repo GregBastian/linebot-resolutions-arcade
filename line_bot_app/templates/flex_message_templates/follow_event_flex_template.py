@@ -1,5 +1,5 @@
 # some future comment
-from line_bot_app.constants import GeneralImages
+from line_bot_app.constants import FollowEventImage
 
 
 def get_follow_event_flex_message(profileName="user"):
@@ -24,7 +24,7 @@ def get_follow_event_flex_message(profileName="user"):
         },
         "hero": {
             "type": "image",
-            "url": GeneralImages.WELCOME_ARCADE.value,
+            "url": FollowEventImage.WELCOME_ARCADE.value,
             "size": "full",
             "aspectMode": "cover",
             "aspectRatio": "20:13"
