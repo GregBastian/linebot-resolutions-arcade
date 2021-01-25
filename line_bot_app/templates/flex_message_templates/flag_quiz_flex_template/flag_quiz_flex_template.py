@@ -15,7 +15,7 @@ def get_flag_quiz_bubble_flex_message(gameName="Flag Quiz", selectedFlagImage=Im
 
     return {
         "type": "bubble",
-        "size": "kilo",
+        "size": "mega",
         "header": {
             "type": "box",
             "layout": "vertical",

@@ -8,7 +8,7 @@ from linebot.models import FlexSendMessage, TextSendMessage
 from line_bot_app.templates.flex_message_templates.flag_quiz_flex_template.flag_quiz_flex_template \
     import get_flag_quiz_bubble_flex_message
 
-from line_bot_app.db_models.models import UserFlagGameModel, FlagGameQuestionsModel
+from line_bot_app.db_models.models import UserFlagGameModel, FlagGameQuestionsModel, RichMenuModel, UserArcadeModel
 
 from line_bot_app.constants import FlagQuizConstants, AcceptedArcadeLobbyTextMessages
 
@@ -57,22 +57,46 @@ class FlexResponses:
 
         UserFlagGameModel.set_all_options_as_false_by_user_id(idUser)
         choices2FlexMessage, trueCountryId = self.generate_question(event)
-        line_bot_api.reply_message(
-            event.reply_token,
-            [
-                TextSendMessage(userTextRightOrWrong),
-                FlexSendMessage(alt_text=f"{AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title()} "
-                                         f"Pertanyaan ke-{FlagQuizConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value}",
-                                contents=get_flag_quiz_bubble_flex_message(
-                                    gameName=AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title(),
-                                    selectedFlagImage=FlagGameQuestionsModel.get_flag_by_id(trueCountryId),
-                                    currentQuestionCount=UserFlagGameModel.get_game_counter_by_user_id(idUser),
-                                    choices=choices2FlexMessage))
-            ]
-        )
 
-    def get_flag_quiz_help(self, event, line_bot_api):
-        pass
+        if UserFlagGameModel.get_game_counter_by_user_id(idUser) <= FlagQuizConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value:
+            line_bot_api.reply_message(
+                event.reply_token,
+                [
+                    TextSendMessage(userTextRightOrWrong),
+                    FlexSendMessage(alt_text=f"{AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title()} "
+                                             f"Pertanyaan ke-{FlagQuizConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value}",
+                                    contents=get_flag_quiz_bubble_flex_message(
+                                        gameName=AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title(),
+                                        selectedFlagImage=FlagGameQuestionsModel.get_flag_by_id(trueCountryId),
+                                        currentQuestionCount=UserFlagGameModel.get_game_counter_by_user_id(idUser),
+                                        choices=choices2FlexMessage))
+                ]
+            )
+        else:
+            currentScore = UserFlagGameModel.get_score_by_user_id(user_id=idUser)
+            userHighScore = UserFlagGameModel.get_hi_score_by_user_id(user_id=idUser)
+            if currentScore > userHighScore:
+                UserFlagGameModel.set_hi_score_by_user_id(idUser, currentScore)
+
+            line_bot_api.link_rich_menu_to_user(idUser,
+                                                RichMenuModel.get_rich_menu_by_pk_id(1))
+            UserArcadeModel.set_game_stop_playing_by_user_id(idUser)
+            UserFlagGameModel.reset_game_settings_by_user_id(idUser)
+
+            final_msg = f"---PERMAINAN SELESAI---\n\n" \
+                        f"Beriku rincian skor kamu:\n" \
+                        f"Skor Akhir: {currentScore}\n" \
+                        f"Skor Tertinggi: {UserFlagGameModel.get_hi_score_by_user_id(idUser)}\n\n" \
+                        f"Terima kasih telah bermain game ini. Jika ingin mengulang, maka bisa memilih game" \
+                        f"ini kembali ketika berada di Arcade Lobby :)"
+
+            line_bot_api.reply_message(
+                event.reply_token,
+                [
+                    TextSendMessage(userTextRightOrWrong),
+                    TextSendMessage(final_msg)
+
+                ])
 
 
 flag_quiz_flex_responses_obj = FlexResponses()
