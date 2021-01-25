@@ -24,7 +24,15 @@ class FlagQuizTextResponses:
             TextSendMessage(help_msg))
 
     def get_final_score_game_when_finish(self, event, line_bot_api):
+        message = event.message.text
         idUser = event.source.user_id
+
+        if UserFlagGameModel.check_true_option_by_user_id(idUser, message):
+            UserFlagGameModel.increment_score_by_user_id(idUser)
+            userTextRightOrWrong = "Tepat! Jawaban Kamu benar..."
+
+        else:
+            userTextRightOrWrong = "Ups! Jawaban Kamu kurang tepat..."
 
         currentScore = UserFlagGameModel.get_score_by_user_id(user_id=idUser)
         userHighScore = UserFlagGameModel.get_hi_score_by_user_id(user_id=idUser)
@@ -45,8 +53,11 @@ class FlagQuizTextResponses:
 
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(final_msg)
-        )
+            [
+                TextSendMessage(userTextRightOrWrong),
+                TextSendMessage(final_msg)
+
+            ])
 
     def get_back_to_arcade_lobby(self, event, line_bot_api):
         idUser = event.source.user_id
