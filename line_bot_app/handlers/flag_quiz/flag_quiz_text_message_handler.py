@@ -19,7 +19,7 @@ from line_bot_app.db_models.models import UserFlagGameModel
 class FlagQuizTextMessageHandlers:
     def flag_quiz_text_message_handler_function(self, event, line_bot_api):
         message = event.message.text
-        idUser = event.source.id_user
+        idUser = event.source.user_id
 
         if UserFlagGameModel.get_game_counter_by_user_id(idUser) > FlagQuizConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value:
             flag_quiz_text_message_response_obj.get_final_score_game_when_finish(event, line_bot_api)
