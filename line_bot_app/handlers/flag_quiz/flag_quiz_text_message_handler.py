@@ -21,12 +21,12 @@ class FlagQuizTextMessageHandlers:
         message = event.message.text
         idUser = event.source.user_id
 
-        if UserFlagGameModel.get_game_counter_by_user_id(idUser) > FlagQuizConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value:
+        if UserFlagGameModel.get_game_counter_by_user_id(idUser) >= FlagQuizConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value:
             flag_quiz_text_message_response_obj.get_final_score_game_when_finish(event, line_bot_api)
 
         elif message in FlagQuizConstants.OPTIONS.value and \
                 UserFlagGameModel.get_game_counter_by_user_id(
-                    idUser) <= FlagQuizConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value:
+                    idUser) < FlagQuizConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value:
             flag_quiz_flex_responses_obj.get_second_question_and_onwards(event, line_bot_api)
 
         elif message == AcceptedFlagQuizTextMessages.HELP.value:
