@@ -8,7 +8,7 @@ from linebot.models import FlexSendMessage, TextSendMessage
 from line_bot_app.templates.flex_message_templates.flag_quiz_flex_template.flag_quiz_flex_template \
     import get_flag_quiz_bubble_flex_message
 
-from line_bot_app.db_models.models import UserFlagGameModel, FlagGameQuestionsModel, RichMenuModel, UserArcadeModel
+from line_bot_app.db_models.models import UserFlagGameModel, FlagGameQuestionsModel
 
 from line_bot_app.constants import FlagQuizConstants, AcceptedArcadeLobbyTextMessages
 

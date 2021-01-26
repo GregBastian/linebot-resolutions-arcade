@@ -44,19 +44,21 @@ class FlagQuizTextResponses:
         UserArcadeModel.set_game_stop_playing_by_user_id(idUser)
         UserFlagGameModel.reset_game_settings_by_user_id(idUser)
 
-        final_msg = f"---PERMAINAN SELESAI---\n\n"\
-                    f"Beriku rincian skor kamu:\n"\
+        finalMsg = f"---PERMAINAN SELESAI---\n\n"\
+                    f"Beriku rincian skor akhir kamu:\n"\
                     f"Skor Akhir: {currentScore}\n" \
                     f"Skor Tertinggi: {UserFlagGameModel.get_hi_score_by_user_id(idUser)}\n\n" \
                     f"Terima kasih telah bermain game ini. Jika ingin mengulang, maka bisa memilih game" \
                     f"ini kembali ketika berada di Arcade Lobby :)"
 
+        goingBackMsg = "Sekarang kamu akan kembali menuju ke Arcade Lobby..."
+
         line_bot_api.reply_message(
             event.reply_token,
             [
                 TextSendMessage(userTextRightOrWrong),
-                TextSendMessage(final_msg)
-
+                TextSendMessage(finalMsg),
+                TextSendMessage(goingBackMsg)
             ])
 
     def get_back_to_arcade_lobby(self, event, line_bot_api):

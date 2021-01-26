@@ -31,7 +31,11 @@ class UserArcadeModel(db.Model):
     @staticmethod
     def add_user(user_id):
         newUser = UserArcadeModel(user_id=user_id)
+        newFlagGameUser = UserFlagGameModel(user_id=user_id)
+        newBatikGameUser = UserBatikGameModel(user_id=user_id)
         db.session.add(newUser)
+        db.session.add(newFlagGameUser)
+        db.session.add(newBatikGameUser)
         db.session.commit()
 
     @staticmethod
@@ -84,6 +88,9 @@ class UserFlagGameModel(db.Model):
     option_C = db.Column(db.Boolean, nullable=False, default=False)
     option_D = db.Column(db.Boolean, nullable=False, default=False)
 
+    def __init__(self, user_id):
+        self.user_id = user_id
+
     @staticmethod
     def add_user(user_id):
         newUserFlagGame = UserFlagGameModel(user_id=user_id)
@@ -104,12 +111,6 @@ class UserFlagGameModel(db.Model):
     def increment_score_by_user_id(user_id):
         userGameFlagModel = UserFlagGameModel.query.filter_by(user_id=user_id).first()
         userGameFlagModel.game_score += 1
-        db.session.commit()
-
-    @staticmethod
-    def update_hi_score(user_id, newScore=10):
-        userFlagGameModel = UserFlagGameModel.query.filter_by(user_id=user_id).first()
-        userFlagGameModel.game_high_score = newScore
         db.session.commit()
 
     @staticmethod
@@ -180,6 +181,111 @@ class UserFlagGameModel(db.Model):
             return userFlagGameModel.option_D
 
 
+class UserBatikGameModel(db.Model):
+    __tablename__ = "user_batik_game_score"
+    id_ = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.String(33), nullable=False, unique=True)
+    game_score = db.Column(db.Integer, nullable=False, default=0)
+    game_high_score = db.Column(db.Integer, nullable=True, default=0)
+    game_question_counter = db.Column(db.Integer, nullable=False, default=1)
+    option_A = db.Column(db.Boolean, nullable=False, default=False)
+    option_B = db.Column(db.Boolean, nullable=False, default=False)
+    option_C = db.Column(db.Boolean, nullable=False, default=False)
+    option_D = db.Column(db.Boolean, nullable=False, default=False)
+
+    def __init__(self, user_id):
+        self.user_id = user_id
+
+    @staticmethod
+    def add_user(user_id):
+        newUserBatikGame = UserBatikGameModel(user_id=user_id)
+        db.session.add(newUserBatikGame)
+        db.session.commit()
+
+    @staticmethod
+    def get_user_by_user_id(user_id):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        return userBatikGameModel
+
+    @staticmethod
+    def get_score_by_user_id(user_id):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        return userBatikGameModel.game_score
+
+    @staticmethod
+    def increment_score_by_user_id(user_id):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        userBatikGameModel.game_score += 1
+        db.session.commit()
+
+    @staticmethod
+    def get_hi_score_by_user_id(user_id):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        return userBatikGameModel.game_high_score
+
+    @staticmethod
+    def set_hi_score_by_user_id(user_id, newScore):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        userBatikGameModel.game_high_score = newScore
+        db.session.commit()
+
+    @staticmethod
+    def get_game_counter_by_user_id(user_id):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        return userBatikGameModel.game_question_counter
+
+    @staticmethod
+    def increment_counter_by_user_id(user_id=user_id, increment_value=1):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        userBatikGameModel.game_question_counter += increment_value
+        db.session.commit()
+
+    @staticmethod
+    def set_selected_option_to_true_by_user_id(user_id=user_id, option="A"):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        if option == 'A':
+            userBatikGameModel.option_A = True
+        elif option == 'B':
+            userBatikGameModel.option_B = True
+        elif option == 'C':
+            userBatikGameModel.option_C = True
+        elif option == 'D':
+            userBatikGameModel.option_D = True
+        db.session.commit()
+
+    @staticmethod
+    def reset_game_settings_by_user_id(user_id=user_id):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        userBatikGameModel.game_score = 0
+        userBatikGameModel.game_question_counter = 1
+        userBatikGameModel.option_A = False
+        userBatikGameModel.option_B = False
+        userBatikGameModel.option_C = False
+        userBatikGameModel.option_D = False
+        db.session.commit()
+
+    @staticmethod
+    def set_all_options_as_false_by_user_id(user_id=user_id):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        userBatikGameModel.option_A = False
+        userBatikGameModel.option_B = False
+        userBatikGameModel.option_C = False
+        userBatikGameModel.option_D = False
+        db.session.commit()
+
+    @staticmethod
+    def check_true_option_by_user_id(user_id=user_id, option="A"):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        if option == "A":
+            return userBatikGameModel.option_A
+        elif option == "B":
+            return userBatikGameModel.option_B
+        elif option == "C":
+            return userBatikGameModel.option_C
+        elif option == "D":
+            return userBatikGameModel.option_D
+
+
 class FortuneTellerModel(db.Model):
     __tablename__ = "fortune_teller_quotes"
     id_ = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -234,6 +340,31 @@ class FlagGameQuestionsModel(db.Model):
     def get_name_by_id(idInput):
         flagGameQuestionsModel = FlagGameQuestionsModel.query.filter_by(id_=idInput).first()
         return flagGameQuestionsModel.country_name
+
+
+class BatikGameQuestionsModel(db.Model):
+    __tablename__ = "batik_game_questions"
+    id_ = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    batik_image_url = db.Column(db.Text(), nullable=False)
+    batik_name = db.Column(db.String(20), nullable=False)
+
+    @staticmethod
+    def get_batik_and_name_by_id(idInput):
+        batikGameQuestionsModel = BatikGameQuestionsModel.query.filter_by(id_=idInput).first()
+        return {
+            "batikImage": batikGameQuestionsModel.batik_image_url,
+            "batikName": batikGameQuestionsModel.batik_name
+        }
+
+    @staticmethod
+    def get_batik_url_by_id(idInput):
+        batikGameQuestionsModel = BatikGameQuestionsModel.query.filter_by(id_=idInput).first()
+        return batikGameQuestionsModel.batik_image_url
+
+    @staticmethod
+    def get_batik_name_by_id(idInput):
+        batikGamesQuestionsModel = BatikGameQuestionsModel.query.filter_by(id_=idInput).first()
+        return batikGamesQuestionsModel.country_name
 
 
 class RichMenuModel(db.Model):

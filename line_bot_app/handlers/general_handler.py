@@ -18,8 +18,6 @@ from line_bot_app.handlers.fortune_teller.fortune_teller_text_message_handler im
 from line_bot_app.handlers.flag_quiz.flag_quiz_text_message_handler import \
     flag_quiz_text_message_handler_obj
 
-import logging
-
 
 class ArcadeGeneralHandler:
     def general_text_message_handler_function(self, event, line_bot_api):
