@@ -23,11 +23,11 @@ class FlexResponses:
         trueBatikId = random.randint(1, 75)
         falseCountryIds = random.sample([x for x in range(1, 76) if x != trueBatikId], 4)
         trueChoice = random.choice(TebakBatikConstants.OPTIONS.value)
-        choices2FlexMessage = {trueChoice: BatikGameQuestionsModel.get_name_by_id(trueBatikId)}
+        choices2FlexMessage = {trueChoice: BatikGameQuestionsModel.get_batik_name_by_id(trueBatikId)}
         for pos, el in enumerate(choice for choice in TebakBatikConstants.OPTIONS.value if choice != trueChoice):
             choices2FlexMessage[el] = BatikGameQuestionsModel.get_batik_name_by_id(falseCountryIds[pos])
         UserBatikGameModel.set_selected_option_to_true_by_user_id(idUser, trueChoice)
-        return choices2FlexMessage, trueBatikId
+        return choices2FlexMessage, trueBatikId 
 
     def get_first_question(self, event, line_bot_api):
         choices2FlexMessage, trueBatikId = self.generate_question(event)
