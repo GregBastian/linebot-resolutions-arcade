@@ -8,7 +8,7 @@ from line_bot_app.constants import ImagePlaceHolder
 from line_bot_app.constants import TebakBatikConstants
 
 
-def get_flag_quiz_bubble_flex_message(gameName="Tebak Batik", selectedBatikImage=ImagePlaceHolder.IMAGE.value,
+def get_tebak_batik_bubble_flex_message(gameName="Tebak Batik", selectedBatikImage=ImagePlaceHolder.IMAGE.value,
                                       currentQuestionCount=0, choices=None):
     if choices is None:
         choices = {}

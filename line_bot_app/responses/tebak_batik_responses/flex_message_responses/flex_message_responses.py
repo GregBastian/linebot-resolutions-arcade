@@ -5,10 +5,10 @@ Created on 23/01/2021
 """
 from linebot.models import FlexSendMessage, TextSendMessage
 
-from line_bot_app.templates.flex_message_templates.flag_quiz_flex_template.flag_quiz_flex_template \
-    import get_flag_quiz_bubble_flex_message
+from line_bot_app.templates.flex_message_templates.tebak_batik_flex_templates.tebak_batik_flex_template import \
+    get_tebak_batik_bubble_flex_message
 
-from line_bot_app.db_models.models import UserBatikGameModel, BatikGameQuestionsModel, RichMenuModel, UserArcadeModel
+from line_bot_app.db_models.models import UserBatikGameModel, BatikGameQuestionsModel
 
 from line_bot_app.constants import AcceptedArcadeLobbyTextMessages, TebakBatikConstants
 
@@ -36,9 +36,9 @@ class FlexResponses:
             event.reply_token,
             FlexSendMessage(alt_text=f"{AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title()} "
                                      f"Pertanyaan ke-{TebakBatikConstants.FLAG_QUIZ_TOTAL_QUESTIONS.value}",
-                            contents=get_flag_quiz_bubble_flex_message(
+                            contents=get_tebak_batik_bubble_flex_message(
                                 gameName=AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title(),
-                                selectedFlagImage=BatikGameQuestionsModel.get_batik_url_by_id(trueBatikId),
+                                selectedBatikImage=BatikGameQuestionsModel.get_batik_url_by_id(trueBatikId),
                                 currentQuestionCount=UserBatikGameModel.get_game_counter_by_user_id(idUser),
                                 choices=choices2FlexMessage))
         )
