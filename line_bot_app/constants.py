@@ -48,7 +48,7 @@ class TebakBatikConstants(ExtendedEnum):
     TEBAK_BATIK_TOTAL_QUESTIONS = 10
 
 
-class AcceptedTebakbatikTextMessages(ExtendedEnum):
+class AcceptedTebakBatikTextMessages(ExtendedEnum):
     OPTIONS = ('A', 'B', 'C', 'D')
     BACK = "back"
     HELP = "help"
