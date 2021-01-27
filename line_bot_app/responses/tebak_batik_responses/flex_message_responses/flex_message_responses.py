@@ -36,10 +36,10 @@ class FlexResponses:
         idUser = event.source.user_id
         line_bot_api.reply_message(
             event.reply_token,
-            FlexSendMessage(alt_text=f"{AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title()} "
+            FlexSendMessage(alt_text=f"{AcceptedArcadeLobbyTextMessages.TEBAK_BATIK.value.title()} "
                                      f"Pertanyaan ke-{TebakBatikConstants.TEBAK_BATIK_TOTAL_QUESTIONS.value}",
                             contents=get_tebak_batik_bubble_flex_message(
-                                gameName=AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value.title(),
+                                gameName=AcceptedArcadeLobbyTextMessages.TEBAK_BATIK.value.title(),
                                 selectedBatikImage=BatikGameQuestionsModel.get_batik_url_by_id(trueBatikId),
                                 currentQuestionCount=UserBatikGameModel.get_game_counter_by_user_id(idUser),
                                 choices=choices2FlexMessage))
