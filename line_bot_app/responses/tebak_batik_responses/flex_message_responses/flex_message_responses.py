@@ -25,7 +25,7 @@ class FlexResponses:
         trueChoice = random.choice(TebakBatikConstants.OPTIONS.value)
         choices2FlexMessage = {trueChoice: BatikGameQuestionsModel.get_name_by_id(trueBatikId)}
         for pos, el in enumerate(choice for choice in TebakBatikConstants.OPTIONS.value if choice != trueChoice):
-            choices2FlexMessage[el] = BatikGameQuestionsModel.get_name_by_id(falseCountryIds[pos])
+            choices2FlexMessage[el] = BatikGameQuestionsModel.get_batik_name_by_id(falseCountryIds[pos])
         UserBatikGameModel.set_selected_option_to_true_by_user_id(idUser, trueChoice)
         return choices2FlexMessage, trueBatikId
 
