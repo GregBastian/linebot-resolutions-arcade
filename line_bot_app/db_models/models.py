@@ -346,7 +346,7 @@ class BatikGameQuestionsModel(db.Model):
     __tablename__ = "batik_game_questions"
     id_ = db.Column(db.Integer, primary_key=True, autoincrement=True)
     batik_image_url = db.Column(db.Text(), nullable=False)
-    batik_name = db.Column(db.String(20), nullable=False)
+    batik_name = db.Column(db.String(35), nullable=False)
 
     @staticmethod
     def get_batik_and_name_by_id(idInput):
