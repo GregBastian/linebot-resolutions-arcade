@@ -7,7 +7,7 @@ from line_bot_app.responses.tebak_batik_responses.text_message_responses.text_me
     tebak_batik_text_message_response_obj
 
 from line_bot_app.responses.tebak_batik_responses.flex_message_responses.flex_message_responses import \
-    tebak_kode_flex_responses_obj
+    tebak_batik_flex_responses_obj
 
 from line_bot_app.constants import TebakBatikConstants, AcceptedTebakBatikTextMessages
 from line_bot_app.db_models.models import UserBatikGameModel
@@ -24,7 +24,7 @@ class TebakBatikTextMessageHandler:
         elif message in TebakBatikConstants.OPTIONS.value and \
                 UserBatikGameModel.get_game_counter_by_user_id(
                     idUser) < TebakBatikConstants.TEBAK_BATIK_TOTAL_QUESTIONS.value:
-            tebak_kode_flex_responses_obj.get_second_question_and_onwards(event, line_bot_api)
+            tebak_batik_flex_responses_obj.get_second_question_and_onwards(event, line_bot_api)
 
         elif message == AcceptedTebakBatikTextMessages.HELP.value:
             tebak_batik_text_message_response_obj.get_flag_quiz_help(event, line_bot_api)

@@ -73,4 +73,4 @@ class FlexResponses:
         )
 
 
-tebak_kode_flex_responses_obj = FlexResponses()
+tebak_batik_flex_responses_obj = FlexResponses()
