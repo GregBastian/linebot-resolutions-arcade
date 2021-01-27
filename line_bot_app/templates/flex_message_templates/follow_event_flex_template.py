@@ -86,7 +86,7 @@ def get_follow_event_flex_message(profileName="user"):
                                     "type": "text",
                                     "text": "Dengan hormat, Manager Resolutions Arcade",
                                     "wrap": True,
-                                    "color": "#e92efb",
+                                    "color": "#fb9eae",
                                     "size": "lg"
                                 }
                             ],
@@ -101,7 +101,7 @@ def get_follow_event_flex_message(profileName="user"):
                                     "type": "text",
                                     "text": "[ @198ynrsq ]",
                                     "wrap": True,
-                                    "color": "#e92efb",
+                                    "color": "#fb9eae",
                                     "size": "md"
                                 }
                             ],

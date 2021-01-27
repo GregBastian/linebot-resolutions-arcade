@@ -14,14 +14,16 @@ from line_bot_app.constants import AcceptedArcadeLobbyTextMessages, TebakBatikCo
 
 import random
 
+import logging
+
 
 class FlexResponses:
 
     @staticmethod
     def generate_question(event):
         idUser = event.source.user_id
-        trueBatikId = random.randint(1, 75)
-        falseCountryIds = random.sample([x for x in range(1, 76) if x != trueBatikId], 4)
+        trueBatikId = random.randint(1, 74)
+        falseCountryIds = random.sample([x for x in range(1, 75) if x != trueBatikId], 4)
         trueChoice = random.choice(TebakBatikConstants.OPTIONS.value)
         choices2FlexMessage = {trueChoice: BatikGameQuestionsModel.get_batik_name_by_id(trueBatikId)}
         for pos, el in enumerate(choice for choice in TebakBatikConstants.OPTIONS.value if choice != trueChoice):
