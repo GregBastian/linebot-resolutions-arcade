@@ -364,7 +364,7 @@ class BatikGameQuestionsModel(db.Model):
     @staticmethod
     def get_batik_name_by_id(idInput):
         batikGamesQuestionsModel = BatikGameQuestionsModel.query.filter_by(id_=idInput).first()
-        return batikGamesQuestionsModel.country_name
+        return batikGamesQuestionsModel.batik_name
 
 
 class RichMenuModel(db.Model):
