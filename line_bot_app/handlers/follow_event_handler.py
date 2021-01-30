@@ -16,6 +16,7 @@ class UserFollowEventHandlers:
         user_id = event.source.user_id
         if UserArcadeModel.user_isExist_by_user_id(user_id):
             UserArcadeModel.reset_fields_by_user_id(user_id)
+            UserArcadeModel.update_user_games_profile_after_refollow(user_id)
             line_bot_api.link_rich_menu_to_user(user_id, RichMenuModel.get_rich_menu_by_pk_id(1))
         else:
             UserArcadeModel.add_user(user_id)

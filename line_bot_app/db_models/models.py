@@ -33,9 +33,22 @@ class UserArcadeModel(db.Model):
         newUser = UserArcadeModel(user_id=user_id)
         newFlagGameUser = UserFlagGameModel(user_id=user_id)
         newBatikGameUser = UserBatikGameModel(user_id=user_id)
+        newKelilingIndonesiaGameUser = UserKelilingIndonesiaGameModel(user_id=user_id)
         db.session.add(newUser)
         db.session.add(newFlagGameUser)
         db.session.add(newBatikGameUser)
+        db.session.add(newKelilingIndonesiaGameUser)
+        db.session.commit()
+
+    @staticmethod
+    def update_user_games_profile_after_refollow(user_id):
+        if UserFlagGameModel.get_user_by_user_id(user_id) is not None:
+            db.session.add(UserFlagGameModel(user_id=user_id))
+        if UserBatikGameModel.get_user_by_user_id(user_id) is not None:
+            db.session.add(UserBatikGameModel(user_id=user_id))
+        if UserKelilingIndonesiaGameModel.get_user_by_user_id(user_id) is not None:
+            db.session.add(UserKelilingIndonesiaGameModel(user_id=user_id))
+
         db.session.commit()
 
     @staticmethod
