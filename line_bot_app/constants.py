@@ -68,6 +68,7 @@ class AcceptedKelilingIndonesiaMessages(ExtendedEnum):
 
 
 class KelilingIndonesiaConstants(ExtendedEnum):
+    OPTIONS = ('A', 'B', 'C', 'D')
     DAFTAR_PROVINSI = (
         'Maluku', 'Jawa Timur', 'Jambi', 'Banten', 'Sulawesi Tenggara', 'Kalimantan Tengah', 'Sumatera Utara',
         'Sulawesi Barat', 'Di Yogyakarta', 'Gorontalo', 'Sulawesi Tengah', 'Papua Barat', 'Kepulauan Riau',
