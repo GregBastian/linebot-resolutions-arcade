@@ -19,7 +19,8 @@ class KelilingIndonesiaTextMessageHandler:
         message = event.message.text
         idUser = event.source.user_id
 
-        if UserKelilingIndonesiaGameModel.get_game_counter_by_user_id(idUser) >= KelilingIndonesiaConstants.TEBAK_BATIK_TOTAL_QUESTIONS.value:
+        if UserKelilingIndonesiaGameModel.get_game_counter_by_user_id(idUser) \
+                >= KelilingIndonesiaConstants.KELILING_INDONESIA_TOTAL_QUESTIONS.value:
             keliling_indonesia_text_message_response_obj.get_final_score_game_when_finish(event, line_bot_api)
 
         elif message in KelilingIndonesiaConstants.OPTIONS.value and \
