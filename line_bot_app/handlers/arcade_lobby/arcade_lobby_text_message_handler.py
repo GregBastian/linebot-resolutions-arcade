@@ -45,6 +45,12 @@ class ArcadeLobbyTextMessageHandlers:
             line_bot_api.link_rich_menu_to_user(idUser, RichMenuModel.get_rich_menu_by_pk_id(4))
             tebak_batik_flex_responses_obj.get_first_question(event, line_bot_api)
 
+        elif message == AcceptedArcadeLobbyTextMessages.TEBAK_KOTA.value:
+            pass
+            UserArcadeModel.set_game_by_user_id(idUser, message)
+            line_bot_api.link_rich_menu_to_user(idUser, RichMenuModel.get_rich_menu_by_pk_id(5))
+            # WIP
+
         # below are conditions if the user has not picked a game yet
         elif message == AcceptedArcadeLobbyTextMessages.GAMES.value:
             arcade_lobby_flex_responses_obj.show_games(event, line_bot_api)

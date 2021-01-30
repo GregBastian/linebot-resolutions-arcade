@@ -21,6 +21,9 @@ from line_bot_app.handlers.flag_quiz.flag_quiz_text_message_handler import \
 from line_bot_app.handlers.tebak_batik.tebak_batik_text_message_handler import \
     tebak_batik_text_message_handler_obj
 
+from line_bot_app.handlers.keliling_indonesia.keliling_indonesia_text_message_handler import \
+    keliling_indonesia_text_message_handler_obj
+
 
 class ArcadeGeneralHandler:
     def general_text_message_handler_function(self, event, line_bot_api):
@@ -36,6 +39,9 @@ class ArcadeGeneralHandler:
 
             elif userArcade.name_of_game_played == AcceptedArcadeLobbyTextMessages.TEBAK_BATIK.value:
                 tebak_batik_text_message_handler_obj.tebak_batik_text_message_handler_function(event, line_bot_api)
+
+            elif userArcade.name_of_game_played == AcceptedArcadeLobbyTextMessages.KELILING_INDONESIA.value:
+                keliling_indonesia_text_message_handler_obj.keliling_indonesia_text_message_handler_function(event, line_bot_api)
 
         else:
             arcade_lobby_text_message_event_handlers_obj.arcade_lobby_text_message_handler_function(event, line_bot_api)

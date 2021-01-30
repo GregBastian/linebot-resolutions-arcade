@@ -29,7 +29,14 @@ class AcceptedArcadeLobbyTextMessages(ExtendedEnum):
     INFO = "info"
     FORTUNE_TELLER = "fortune teller"
     FLAG_QUIZ = "flag quiz"
-    TEBAK_BATIK = "batik quiz"
+    TEBAK_BATIK = "tebak batik"
+    KELILING_INDONESIA = "tebak lokasi"
+
+
+class AcceptedFortuneTellerTextMessages(ExtendedEnum):
+    BACK = "back"
+    HELP = "help"
+    RAMAL = "ramal"
 
 
 class FlagQuizConstants(ExtendedEnum):
@@ -54,16 +61,28 @@ class AcceptedTebakBatikTextMessages(ExtendedEnum):
     HELP = "help"
 
 
-class AcceptedFortuneTellerTextMessages(ExtendedEnum):
+class AcceptedKelilingIndonesiaMessages(ExtendedEnum):
+    OPTIONS = ('A', 'B', 'C', 'D')
     BACK = "back"
     HELP = "help"
-    RAMAL = "ramal"
+
+
+class KelilingIndonesiaConstants(ExtendedEnum):
+    DAFTAR_PROVINSI = (
+        'Maluku', 'Jawa Timur', 'Jambi', 'Banten', 'Sulawesi Tenggara', 'Kalimantan Tengah', 'Sumatera Utara',
+        'Sulawesi Barat', 'Di Yogyakarta', 'Gorontalo', 'Sulawesi Tengah', 'Papua Barat', 'Kepulauan Riau',
+        'Kalimantan Barat', 'Nusa Tenggara Barat', 'Jawa Tengah', 'Papua', 'Kalimantan Timur', 'Maluku Utara',
+        'Dki Jakarta', 'Jawa Barat', 'Sulawesi Selatan', 'Riau', 'Nusa Tenggara Timur', 'Sumatera Barat', 'Bengkulu',
+        'Aceh', 'Bali', 'Lampung', 'Sumatera Selatan', 'Kalimantan Utara', 'Kepulauan Bangka Belitung',
+        'Sulawesi Utara', 'Kalimantan Selatan')
+    KELILING_INDONESIA_TOTAL_QUESTIONS = 5
 
 
 class GamesNames(ExtendedEnum):
     FORTUNE_TELLER = "Fortune Teller"
     FLAG_QUIZ = "Flag Quiz"
     TEBAK_BATIK = "Tebak Batik"
+    KELILING_INDONESIA = "Tebak Lokasi"
 
 
 class GamesThumbnail(ExtendedEnum):
@@ -73,6 +92,8 @@ class GamesThumbnail(ExtendedEnum):
                 "=tinysrgb&h=650&w=940"
     TEBAK_BATIK = "https://images.pexels.com/photos/4610857/pexels-photo-4610857.jpeg?auto=compress&cs" \
                   "=tinysrgb&h=650&w=940"
+    KELILING_INDONESIA = "https://images.pexels.com/photos/758742/pexels-photo-758742.jpeg?auto=compress&cs" \
+                         "=tinysrgb&h=650&w=940"
 
 
 class GamesInfo(ExtendedEnum):
@@ -80,12 +101,14 @@ class GamesInfo(ExtendedEnum):
                      "nanti"
     FLAG_QUIZ = "Uji pengetahuan geografis-mu dengan menebak nama negara berdasarkan bendera yang ditampilkan"
     TEBAK_BATIK = "Ukur kemampuanmu untuk mengetahui asal daerah dari motif-motif batik dari seluruh Indonesia"
+    KELILING_INDONESIA = "Anda sudah merasa mengetahui semua daerah di Indonesia? Buktikan dengan skor sempurna disini"
 
 
 class GamesTextSendMessage(ExtendedEnum):
     FORTUNE_TELLER = AcceptedArcadeLobbyTextMessages.FORTUNE_TELLER.value
     FLAG_QUIZ = AcceptedArcadeLobbyTextMessages.FLAG_QUIZ.value
     TEBAK_BATIK = AcceptedArcadeLobbyTextMessages.TEBAK_BATIK.value
+    KELILING_INDONESIA = AcceptedArcadeLobbyTextMessages.KELILING_INDONESIA.value
 
 
 class GamesBubbleInfo(ExtendedEnum):
@@ -102,6 +125,10 @@ class GamesBubbleInfo(ExtendedEnum):
                    GamesThumbnail.TEBAK_BATIK.value,
                    GamesInfo.TEBAK_BATIK.value,
                    GamesTextSendMessage.TEBAK_BATIK.value)
+    KELILING_INDONESIA = (AcceptedArcadeLobbyTextMessages.KELILING_INDONESIA.value.title(),
+                          GamesThumbnail.KELILING_INDONESIA.value,
+                          GamesInfo.KELILING_INDONESIA.value,
+                          GamesTextSendMessage.KELILING_INDONESIA.value)
 
 
 class FortuneTellerImage(ExtendedEnum):
@@ -117,3 +144,46 @@ class RichMenuNames(ExtendedEnum):
 
 class ImagePlaceHolder(ExtendedEnum):
     IMAGE = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png"
+
+
+class KelilingIndonesiaGameThumbnails(ExtendedEnum):
+    THUMBNAIL_1 = "https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&h=650" \
+                  "&w=940 "
+    THUMBNAIL_2 = "https://images.pexels.com/photos/654/clouds-cloudy-agriculture-farm.jpg?auto=compress&cs=tinysrgb" \
+                  "&h=650&w=940 "
+    THUMBNAIL_3 = "https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&h=650&w" \
+                  "=940 "
+    THUMBNAIL_4 = "https://images.pexels.com/photos/2032110/pexels-photo-2032110.jpeg?auto=compress&cs=tinysrgb&h=650" \
+                  "&w=940 "
+    THUMBNAIL_5 = "https://images.pexels.com/photos/2583847/pexels-photo-2583847.jpeg?auto=compress&cs=tinysrgb&h=650" \
+                  "&w=940 "
+    THUMBNAIL_6 = "https://images.pexels.com/photos/1657984/pexels-photo-1657984.jpeg?auto=compress&cs=tinysrgb&h=650" \
+                  "&w=940 "
+    THUMBNAIL_7 = "https://images.pexels.com/photos/1697494/pexels-photo-1697494.jpeg?auto=compress&cs=tinysrgb&h=650" \
+                  "&w=940"
+    THUMBNAIL_8 = "https://images.pexels.com/photos/1454932/pexels-photo-1454932.jpeg?auto=compress&cs=tinysrgb&h=650" \
+                  "&w=940 "
+    THUMBNAIL_9 = "https://images.pexels.com/photos/1081915/pexels-photo-1081915.jpeg?auto=compress&cs=tinysrgb&h=650" \
+                  "&w=940"
+    THUMBNAIL_10 = "https://images.pexels.com/photos/739285/pexels-photo-739285.jpeg?auto=compress&cs=tinysrgb&h=650" \
+                   "&w=940 "
+    THUMBNAIL_11 = "https://images.pexels.com/photos/1722321/pexels-photo-1722321.jpeg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940 "
+    THUMBNAIL_12 = "https://images.pexels.com/photos/1700742/pexels-photo-1700742.jpeg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940 "
+    THUMBNAIL_13 = "https://images.pexels.com/photos/1551491/pexels-photo-1551491.jpeg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940 "
+    THUMBNAIL_14 = "https://images.pexels.com/photos/2246950/pexels-photo-2246950.jpeg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940"
+    THUMBNAIL_15 = "https://images.pexels.com/photos/1551493/pexels-photo-1551493.jpeg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940"
+    THUMBNAIL_16 = "https://images.pexels.com/photos/3068249/pexels-photo-3068249.jpeg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940"
+    THUMBNAIL_17 = "https://images.pexels.com/photos/639/clouds-rainy-rain-asia.jpg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940"
+    THUMBNAIL_18 = "https://images.pexels.com/photos/2861894/pexels-photo-2861894.jpeg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940"
+    THUMBNAIL_19 = "https://images.pexels.com/photos/3290667/pexels-photo-3290667.jpeg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940"
+    THUMBNAIL_20 = "https://images.pexels.com/photos/2020377/pexels-photo-2020377.jpeg?auto=compress&cs=tinysrgb&h" \
+                   "=650&w=940"
