@@ -54,16 +54,16 @@ class FlexResponses:
     def get_second_question_and_onwards(self, event, line_bot_api):
         message = event.message.text
         idUser = event.source.user_id
-        IndonesiaLocationGameQuestionsModel.increment_counter_by_user_id(user_id=idUser, increment_value=1)
+        UserKelilingIndonesiaGameModel.increment_counter_by_user_id(user_id=idUser, increment_value=1)
 
-        if IndonesiaLocationGameQuestionsModel.check_true_option_by_user_id(idUser, message):
-            IndonesiaLocationGameQuestionsModel.increment_score_by_user_id(idUser)
+        if UserKelilingIndonesiaGameModel.check_true_option_by_user_id(idUser, message):
+            UserKelilingIndonesiaGameModel.increment_score_by_user_id(idUser)
             userTextRightOrWrong = "Tepat! Nama batik yang kamu pilih benar..."
 
         else:
             userTextRightOrWrong = "Ups! Nama batik yang kamu pilih kurang tepat..."
 
-        IndonesiaLocationGameQuestionsModel.set_all_options_as_false_by_user_id(idUser)
+        UserKelilingIndonesiaGameModel.set_all_options_as_false_by_user_id(idUser)
         choices2FlexMessage, trueKotaKabupatenId, trueKotaKabupaten = self.generate_question(event)
 
         line_bot_api.reply_message(
