@@ -44,12 +44,12 @@ class UserArcadeModel(db.Model):
     @staticmethod
     def update_user_games_profile_after_refollow(user_id):
         logging.info(UserFlagGameModel.get_user_by_user_id(user_id))
-        if UserFlagGameModel.get_user_by_user_id(user_id) is not None:
+        if UserFlagGameModel.check_if_user_isExist(user_id):
             logging.info("this user does not exist, adding...")
             db.session.add(UserFlagGameModel(user_id=user_id))
-        if UserBatikGameModel.get_user_by_user_id(user_id) is not None:
+        if UserBatikGameModel.check_if_user_isExist(user_id):
             db.session.add(UserBatikGameModel(user_id=user_id))
-        if UserKelilingIndonesiaGameModel.get_user_by_user_id(user_id) is not None:
+        if UserKelilingIndonesiaGameModel.check_if_user_isExist(user_id):
             db.session.add(UserKelilingIndonesiaGameModel(user_id=user_id))
 
         db.session.commit()
@@ -117,6 +117,11 @@ class UserFlagGameModel(db.Model):
     def get_user_by_user_id(user_id):
         userFlagGameModel = UserFlagGameModel.query.filter_by(user_id=user_id).first()
         return userFlagGameModel
+
+    @staticmethod
+    def check_if_user_isExist(user_id):
+        userFlagGameModel = UserFlagGameModel.query.filter_by(user_id=user_id).first()
+        return bool(userFlagGameModel)
 
     @staticmethod
     def get_score_by_user_id(user_id):
@@ -224,6 +229,11 @@ class UserBatikGameModel(db.Model):
         return userBatikGameModel
 
     @staticmethod
+    def check_if_user_isExist(user_id):
+        userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
+        return bool(userBatikGameModel)
+
+    @staticmethod
     def get_score_by_user_id(user_id):
         userBatikGameModel = UserBatikGameModel.query.filter_by(user_id=user_id).first()
         return userBatikGameModel.game_score
@@ -327,6 +337,11 @@ class UserKelilingIndonesiaGameModel(db.Model):
     def get_user_by_user_id(user_id):
         userKelilingIndonesiaGameMode = UserKelilingIndonesiaGameModel.query.filter_by(user_id=user_id).first()
         return userKelilingIndonesiaGameMode
+
+    @staticmethod
+    def check_if_user_isExist(user_id):
+        userKelilingIndonesiaGameMode = UserKelilingIndonesiaGameModel.query.filter_by(user_id=user_id).first()
+        return bool(userKelilingIndonesiaGameMode)
 
     @staticmethod
     def get_score_by_user_id(user_id):
