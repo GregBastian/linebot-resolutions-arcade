@@ -58,10 +58,10 @@ class FlexResponses:
 
         if UserKelilingIndonesiaGameModel.check_true_option_by_user_id(idUser, message):
             UserKelilingIndonesiaGameModel.increment_score_by_user_id(idUser)
-            userTextRightOrWrong = "Tepat! Nama batik yang kamu pilih benar..."
+            userTextRightOrWrong = "Tepat! Tampaknya kamu memang jago nih..."
 
-        else:
-            userTextRightOrWrong = "Ups! Nama batik yang kamu pilih kurang tepat..."
+            else:
+            userTextRightOrWrong = "Ups! Sepertinya kamu salah lokasi...""
 
         UserKelilingIndonesiaGameModel.set_all_options_as_false_by_user_id(idUser)
         choices2FlexMessage, trueKotaKabupatenId, trueKotaKabupaten = self.generate_question(event)
