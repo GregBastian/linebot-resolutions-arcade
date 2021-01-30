@@ -24,7 +24,7 @@ class KelilingIndonesiaTextMessageHandler:
 
         elif message in KelilingIndonesiaConstants.OPTIONS.value and \
                 UserKelilingIndonesiaGameModel.get_game_counter_by_user_id(
-                    idUser) < KelilingIndonesiaConstants.TEBAK_BATIK_TOTAL_QUESTIONS.value:
+                    idUser) < KelilingIndonesiaConstants.KELILING_INDONESIA_TOTAL_QUESTIONS.value:
             keliling_indonesia_flex_responses_obj.get_second_question_and_onwards(event, line_bot_api)
 
         elif message == AcceptedKelilingIndonesiaMessages.HELP.value:

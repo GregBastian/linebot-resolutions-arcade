@@ -18,7 +18,7 @@ def get_keliling_indonesia_bubble_flex_message(gameName="Keliling Indonesia",
 
     return {
         "type": "bubble",
-        "size": "kilo",
+        "size": "mega",
         "header": {
             "type": "box",
             "layout": "vertical",
