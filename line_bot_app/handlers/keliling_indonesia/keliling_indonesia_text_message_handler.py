@@ -19,14 +19,15 @@ class KelilingIndonesiaTextMessageHandler:
         message = event.message.text
         idUser = event.source.user_id
 
-        if UserKelilingIndonesiaGameModel.get_game_counter_by_user_id(idUser) \
-                >= KelilingIndonesiaConstants.KELILING_INDONESIA_TOTAL_QUESTIONS.value:
-            keliling_indonesia_text_message_response_obj.get_final_score_game_when_finish(event, line_bot_api)
+        if message in KelilingIndonesiaConstants.OPTIONS.value:
+            if UserKelilingIndonesiaGameModel.get_game_counter_by_user_id(idUser) \
+                    >= KelilingIndonesiaConstants.KELILING_INDONESIA_TOTAL_QUESTIONS.value:
+                keliling_indonesia_text_message_response_obj.get_final_score_game_when_finish(event, line_bot_api)
 
-        elif message in KelilingIndonesiaConstants.OPTIONS.value and \
-                UserKelilingIndonesiaGameModel.get_game_counter_by_user_id(
-                    idUser) < KelilingIndonesiaConstants.KELILING_INDONESIA_TOTAL_QUESTIONS.value:
-            keliling_indonesia_flex_responses_obj.get_second_question_and_onwards(event, line_bot_api)
+            elif message in KelilingIndonesiaConstants.OPTIONS.value and \
+                    UserKelilingIndonesiaGameModel.get_game_counter_by_user_id(
+                        idUser) < KelilingIndonesiaConstants.KELILING_INDONESIA_TOTAL_QUESTIONS.value:
+                keliling_indonesia_flex_responses_obj.get_second_question_and_onwards(event, line_bot_api)
 
         elif message == AcceptedKelilingIndonesiaMessages.HELP.value:
             keliling_indonesia_text_message_response_obj.get_keliling_indonesia_help(event, line_bot_api)

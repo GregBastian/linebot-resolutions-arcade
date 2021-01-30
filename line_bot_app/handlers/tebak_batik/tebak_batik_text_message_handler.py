@@ -18,13 +18,14 @@ class TebakBatikTextMessageHandler:
         message = event.message.text
         idUser = event.source.user_id
 
-        if UserBatikGameModel.get_game_counter_by_user_id(idUser) >= TebakBatikConstants.TEBAK_BATIK_TOTAL_QUESTIONS.value:
-            tebak_batik_text_message_response_obj.get_final_score_game_when_finish(event, line_bot_api)
+        if message in TebakBatikConstants.OPTIONS.value:
+            if UserBatikGameModel.get_game_counter_by_user_id(idUser) >= TebakBatikConstants.TEBAK_BATIK_TOTAL_QUESTIONS.value:
+                tebak_batik_text_message_response_obj.get_final_score_game_when_finish(event, line_bot_api)
 
-        elif message in TebakBatikConstants.OPTIONS.value and \
-                UserBatikGameModel.get_game_counter_by_user_id(
-                    idUser) < TebakBatikConstants.TEBAK_BATIK_TOTAL_QUESTIONS.value:
-            tebak_batik_flex_responses_obj.get_second_question_and_onwards(event, line_bot_api)
+            elif message in TebakBatikConstants.OPTIONS.value and \
+                    UserBatikGameModel.get_game_counter_by_user_id(
+                        idUser) < TebakBatikConstants.TEBAK_BATIK_TOTAL_QUESTIONS.value:
+                tebak_batik_flex_responses_obj.get_second_question_and_onwards(event, line_bot_api)
 
         elif message == AcceptedTebakBatikTextMessages.HELP.value:
             tebak_batik_text_message_response_obj.get_flag_quiz_help(event, line_bot_api)
