@@ -43,13 +43,11 @@ class UserArcadeModel(db.Model):
 
     @staticmethod
     def update_user_games_profile_after_refollow(user_id):
-        logging.info(f"{UserFlagGameModel.check_if_user_isExist(user_id)} <----- ")
-        if UserFlagGameModel.check_if_user_isExist(user_id):
-            logging.info("this user does not exist, adding...")
+        if UserFlagGameModel.get_user_by_user_id(user_id) is None:
             db.session.add(UserFlagGameModel(user_id=user_id))
-        if UserBatikGameModel.check_if_user_isExist(user_id):
+        if UserBatikGameModel.get_user_by_user_id(user_id) is None:
             db.session.add(UserBatikGameModel(user_id=user_id))
-        if UserKelilingIndonesiaGameModel.check_if_user_isExist(user_id):
+        if UserKelilingIndonesiaGameModel.get_user_by_user_id(user_id) is None:
             db.session.add(UserKelilingIndonesiaGameModel(user_id=user_id))
 
         db.session.commit()
