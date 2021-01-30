@@ -21,6 +21,9 @@ from line_bot_app.responses.flag_quiz_responses.flex_message_responses.flex_mess
 from line_bot_app.responses.tebak_batik_responses.flex_message_responses.flex_message_responses import \
     tebak_batik_flex_responses_obj
 
+from line_bot_app.responses.keliling_indonesia_responses.flex_message_responses.flex_message_responses import \
+    keliling_indonesia_flex_responses_obj
+
 from line_bot_app.constants import AcceptedArcadeLobbyTextMessages
 from line_bot_app.db_models.models import UserArcadeModel, RichMenuModel
 
@@ -45,11 +48,10 @@ class ArcadeLobbyTextMessageHandlers:
             line_bot_api.link_rich_menu_to_user(idUser, RichMenuModel.get_rich_menu_by_pk_id(4))
             tebak_batik_flex_responses_obj.get_first_question(event, line_bot_api)
 
-        elif message == AcceptedArcadeLobbyTextMessages.TEBAK_KOTA.value:
-            pass
+        elif message == AcceptedArcadeLobbyTextMessages.KELILING_INDONESIA.value:
             UserArcadeModel.set_game_by_user_id(idUser, message)
             line_bot_api.link_rich_menu_to_user(idUser, RichMenuModel.get_rich_menu_by_pk_id(5))
-            # WIP
+            keliling_indonesia_flex_responses_obj.get_first_question(event, line_bot_api)
 
         # below are conditions if the user has not picked a game yet
         elif message == AcceptedArcadeLobbyTextMessages.GAMES.value:
