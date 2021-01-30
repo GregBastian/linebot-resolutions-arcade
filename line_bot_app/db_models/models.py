@@ -49,7 +49,6 @@ class UserArcadeModel(db.Model):
             db.session.add(UserBatikGameModel(user_id=user_id))
         if UserKelilingIndonesiaGameModel.get_user_by_user_id(user_id) is None:
             db.session.add(UserKelilingIndonesiaGameModel(user_id=user_id))
-
         db.session.commit()
 
     @staticmethod
@@ -510,7 +509,7 @@ class IndonesiaLocationGameQuestionsModel(db.Model):
     @staticmethod
     def get_nama_kota_or_kabupaten_by_id(idInput):
         indonesianLocationGameModel = IndonesiaLocationGameQuestionsModel.query.filter_by(id_=idInput).first()
-        return indonesianLocationGameModel.nama_kota_or_kabupatem
+        return indonesianLocationGameModel.nama_kota_or_kabupaten
 
     @staticmethod
     def get_provinsi_by_id(idInput):
