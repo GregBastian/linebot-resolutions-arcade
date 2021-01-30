@@ -12,6 +12,7 @@ from random import randint, choice
 
 db = SQLAlchemy()
 
+import logging
 
 # ==!! IMPORTANT !!==
 # If you modified the table design in the database please make sure that you
@@ -42,7 +43,9 @@ class UserArcadeModel(db.Model):
 
     @staticmethod
     def update_user_games_profile_after_refollow(user_id):
+        logging.info(UserFlagGameModel.get_user_by_user_id(user_id))
         if UserFlagGameModel.get_user_by_user_id(user_id) is not None:
+            logging.info("this user does not exist, adding...")
             db.session.add(UserFlagGameModel(user_id=user_id))
         if UserBatikGameModel.get_user_by_user_id(user_id) is not None:
             db.session.add(UserBatikGameModel(user_id=user_id))
