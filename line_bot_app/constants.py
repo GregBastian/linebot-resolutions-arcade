@@ -149,29 +149,29 @@ class ImagePlaceHolder(ExtendedEnum):
 
 class KelilingIndonesiaGameThumbnails(ExtendedEnum):
     THUMBNAIL_1 = "https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&h=650" \
-                  "&w=940 "
+                  "&w=940"
     THUMBNAIL_2 = "https://images.pexels.com/photos/654/clouds-cloudy-agriculture-farm.jpg?auto=compress&cs=tinysrgb" \
                   "&h=650&w=940 "
     THUMBNAIL_3 = "https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&h=650&w" \
-                  "=940 "
+                  "=940"
     THUMBNAIL_4 = "https://images.pexels.com/photos/2032110/pexels-photo-2032110.jpeg?auto=compress&cs=tinysrgb&h=650" \
-                  "&w=940 "
+                  "&w=940"
     THUMBNAIL_5 = "https://images.pexels.com/photos/2583847/pexels-photo-2583847.jpeg?auto=compress&cs=tinysrgb&h=650" \
-                  "&w=940 "
+                  "&w=940"
     THUMBNAIL_6 = "https://images.pexels.com/photos/1657984/pexels-photo-1657984.jpeg?auto=compress&cs=tinysrgb&h=650" \
-                  "&w=940 "
+                  "&w=940"
     THUMBNAIL_7 = "https://images.pexels.com/photos/1697494/pexels-photo-1697494.jpeg?auto=compress&cs=tinysrgb&h=650" \
                   "&w=940"
     THUMBNAIL_8 = "https://images.pexels.com/photos/1454932/pexels-photo-1454932.jpeg?auto=compress&cs=tinysrgb&h=650" \
-                  "&w=940 "
+                  "&w=940"
     THUMBNAIL_9 = "https://images.pexels.com/photos/1081915/pexels-photo-1081915.jpeg?auto=compress&cs=tinysrgb&h=650" \
                   "&w=940"
     THUMBNAIL_10 = "https://images.pexels.com/photos/739285/pexels-photo-739285.jpeg?auto=compress&cs=tinysrgb&h=650" \
-                   "&w=940 "
+                   "&w=940"
     THUMBNAIL_11 = "https://images.pexels.com/photos/1722321/pexels-photo-1722321.jpeg?auto=compress&cs=tinysrgb&h" \
-                   "=650&w=940 "
+                   "=650&w=940"
     THUMBNAIL_12 = "https://images.pexels.com/photos/1700742/pexels-photo-1700742.jpeg?auto=compress&cs=tinysrgb&h" \
-                   "=650&w=940 "
+                   "=650&w=940"
     THUMBNAIL_13 = "https://images.pexels.com/photos/1551491/pexels-photo-1551491.jpeg?auto=compress&cs=tinysrgb&h" \
                    "=650&w=940 "
     THUMBNAIL_14 = "https://images.pexels.com/photos/2246950/pexels-photo-2246950.jpeg?auto=compress&cs=tinysrgb&h" \
